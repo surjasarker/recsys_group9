@@ -1,0 +1,316 @@
+Tue 16 Jun 2026 12:33:00 INFO  Device: cuda
+Tue 16 Jun 2026 12:33:00 INFO  [DATASET] Amazon Reviews 2014 for category: CDs_and_Vinyl
+Tue 16 Jun 2026 12:33:00 INFO  [DATASET] Reviews have been processed...
+Tue 16 Jun 2026 12:33:01 INFO  [DATASET] Metadata has been processed...
+Tue 16 Jun 2026 12:33:01 INFO  [Dataset] AmazonReviews2014
+	Number of users: 75259
+	Number of items: 64444
+	Number of interactions: 1097592
+	Average item sequence length: 14.584195910123706
+Tue 16 Jun 2026 12:33:07 INFO  [TOKENIZER] Loading semantic IDs from cache/AmazonReviews2014/CDs_and_Vinyl/processed/sentence-t5-base_OPQ64,IVF1,PQ64x8.sem_ids...
+Tue 16 Jun 2026 12:35:09 INFO  RPG(
+  (gpt2): GPT2Model(
+    (wte): Embedding(16386, 448)
+    (wpe): Embedding(50, 448)
+    (drop): Dropout(p=0.5, inplace=False)
+    (h): ModuleList(
+      (0-1): 2 x GPT2Block(
+        (ln_1): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+        (attn): GPT2Attention(
+          (c_attn): Conv1D(nf=1344, nx=448)
+          (c_proj): Conv1D(nf=448, nx=448)
+          (attn_dropout): Dropout(p=0.5, inplace=False)
+          (resid_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+        (mlp): GPT2MLP(
+          (c_fc): Conv1D(nf=1024, nx=448)
+          (c_proj): Conv1D(nf=448, nx=1024)
+          (act): NewGELUActivation()
+          (dropout): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+    (ln_f): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+  )
+  (pred_heads): Sequential(
+    (0): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (1): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (2): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (3): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (4): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (5): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (6): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (7): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (8): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (9): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (10): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (11): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (12): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (13): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (14): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (15): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (16): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (17): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (18): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (19): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (20): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (21): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (22): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (23): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (24): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (25): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (26): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (27): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (28): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (29): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (30): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (31): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (32): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (33): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (34): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (35): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (36): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (37): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (38): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (39): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (40): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (41): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (42): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (43): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (44): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (45): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (46): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (47): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (48): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (49): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (50): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (51): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (52): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (53): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (54): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (55): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (56): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (57): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (58): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (59): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (60): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (61): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (62): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (63): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+  )
+  (loss_fct): CrossEntropyLoss()
+)
+Tue 16 Jun 2026 12:35:09 INFO  #Embedding parameters: 7340928
+#Non-embedding parameters: 16347776
+#Total trainable parameters: 23688704
+
+Tue 16 Jun 2026 12:36:44 INFO  [Epoch 1] Train Loss: 5.604524747083185
+Tue 16 Jun 2026 12:37:17 INFO  [Epoch 1] Val Results: OrderedDict([('ndcg@5', 7.693146471865475e-05), ('ndcg@10', 9.366453014081344e-05), ('recall@5', 0.0001328762446064502), ('recall@10', 0.0001860267366282642), ('n_visited_items', 64443.0), ('inference_total_s', 33.3), ('inference_ms_per_sample', 0.442), ('cluster_init_s', 0.0)])
+Tue 16 Jun 2026 12:37:17 INFO  [Epoch 1] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=1200_--n_probe_clusters=600-Jun-16-2026_12-33-73dc9d.pth
+Tue 16 Jun 2026 12:38:52 INFO  [Epoch 2] Train Loss: 5.498135363022273
+Tue 16 Jun 2026 12:39:25 INFO  [Epoch 2] Val Results: OrderedDict([('ndcg@5', 7.693146471865475e-05), ('ndcg@10', 9.366453014081344e-05), ('recall@5', 0.0001328762446064502), ('recall@10', 0.0001860267366282642), ('n_visited_items', 64443.0), ('inference_total_s', 33.378), ('inference_ms_per_sample', 0.444), ('cluster_init_s', 0.0)])
+Tue 16 Jun 2026 12:40:59 INFO  [Epoch 3] Train Loss: 5.4904229698487965
+Tue 16 Jun 2026 12:41:32 INFO  [Epoch 3] Val Results: OrderedDict([('ndcg@5', 7.693146471865475e-05), ('ndcg@10', 9.366453014081344e-05), ('recall@5', 0.0001328762446064502), ('recall@10', 0.0001860267366282642), ('n_visited_items', 64443.0), ('inference_total_s', 33.179), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Tue 16 Jun 2026 12:43:06 INFO  [Epoch 4] Train Loss: 5.47950149200344
+Tue 16 Jun 2026 12:43:40 INFO  [Epoch 4] Val Results: OrderedDict([('ndcg@5', 0.0014562950236722827), ('ndcg@10', 0.002009672112762928), ('recall@5', 0.0022854714188724756), ('recall@10', 0.004012862220406532), ('n_visited_items', 64443.0), ('inference_total_s', 33.161), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Tue 16 Jun 2026 12:43:40 INFO  [Epoch 4] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=1200_--n_probe_clusters=600-Jun-16-2026_12-33-73dc9d.pth
+Tue 16 Jun 2026 12:45:14 INFO  [Epoch 5] Train Loss: 5.460022204469846
+Tue 16 Jun 2026 12:45:47 INFO  [Epoch 5] Val Results: OrderedDict([('ndcg@5', 0.003471590345725417), ('ndcg@10', 0.004921756684780121), ('recall@5', 0.005713678430765867), ('recall@10', 0.010231470689177513), ('n_visited_items', 64443.0), ('inference_total_s', 33.302), ('inference_ms_per_sample', 0.443), ('cluster_init_s', 0.0)])
+Tue 16 Jun 2026 12:45:47 INFO  [Epoch 5] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=1200_--n_probe_clusters=600-Jun-16-2026_12-33-73dc9d.pth
+Tue 16 Jun 2026 12:47:21 INFO  [Epoch 6] Train Loss: 5.437303589538765
+Tue 16 Jun 2026 12:47:54 INFO  [Epoch 6] Val Results: OrderedDict([('ndcg@5', 0.006112225819379091), ('ndcg@10', 0.008050726726651192), ('recall@5', 0.00980626605451107), ('recall@10', 0.01585213467478752), ('n_visited_items', 64443.0), ('inference_total_s', 33.489), ('inference_ms_per_sample', 0.445), ('cluster_init_s', 0.0)])
+Tue 16 Jun 2026 12:47:55 INFO  [Epoch 6] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=1200_--n_probe_clusters=600-Jun-16-2026_12-33-73dc9d.pth
+Tue 16 Jun 2026 12:49:28 INFO  [Epoch 7] Train Loss: 5.4225509083622585

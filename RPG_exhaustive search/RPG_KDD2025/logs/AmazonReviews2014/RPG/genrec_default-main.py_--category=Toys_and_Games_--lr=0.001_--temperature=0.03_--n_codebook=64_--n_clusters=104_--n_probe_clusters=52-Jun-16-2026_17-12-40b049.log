@@ -1,0 +1,686 @@
+Tue 16 Jun 2026 17:12:03 INFO  Device: cuda
+Tue 16 Jun 2026 17:12:03 INFO  [DATASET] Amazon Reviews 2014 for category: Toys_and_Games
+Tue 16 Jun 2026 17:12:03 INFO  [DATASET] Reviews have been processed...
+Tue 16 Jun 2026 17:12:03 INFO  [DATASET] Metadata has been processed...
+Tue 16 Jun 2026 17:12:03 INFO  [Dataset] AmazonReviews2014
+	Number of users: 19413
+	Number of items: 11925
+	Number of interactions: 167597
+	Average item sequence length: 8.633235460773708
+Tue 16 Jun 2026 17:12:06 INFO  [TOKENIZER] Loading sentence embeddings from cache/AmazonReviews2014/Toys_and_Games/processed/sentence-t5-base.sent_emb...
+Tue 16 Jun 2026 17:12:06 INFO  [TOKENIZER] Applying PCA to sentence embeddings...
+Tue 16 Jun 2026 17:12:06 INFO  [TOKENIZER] Sentence embeddings shape: (11924, 128)
+Tue 16 Jun 2026 17:12:07 INFO  [TOKENIZER] Items for training: 11876 of 11924
+Tue 16 Jun 2026 17:12:07 INFO  Loading faiss with AVX512 support.
+Tue 16 Jun 2026 17:12:07 INFO  Successfully loaded faiss with AVX512 support.
+Tue 16 Jun 2026 17:12:07 INFO  [TOKENIZER] Training index...
+Tue 16 Jun 2026 17:12:30 INFO  [TOKENIZER] Saving semantic IDs to cache/AmazonReviews2014/Toys_and_Games/processed/sentence-t5-base_OPQ64,IVF1,PQ64x8.sem_ids...
+Tue 16 Jun 2026 17:12:30 INFO  [TOKENIZER] Loading semantic IDs from cache/AmazonReviews2014/Toys_and_Games/processed/sentence-t5-base_OPQ64,IVF1,PQ64x8.sem_ids...
+Tue 16 Jun 2026 17:12:59 INFO  RPG(
+  (gpt2): GPT2Model(
+    (wte): Embedding(16386, 448)
+    (wpe): Embedding(50, 448)
+    (drop): Dropout(p=0.5, inplace=False)
+    (h): ModuleList(
+      (0-1): 2 x GPT2Block(
+        (ln_1): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+        (attn): GPT2Attention(
+          (c_attn): Conv1D(nf=1344, nx=448)
+          (c_proj): Conv1D(nf=448, nx=448)
+          (attn_dropout): Dropout(p=0.5, inplace=False)
+          (resid_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+        (mlp): GPT2MLP(
+          (c_fc): Conv1D(nf=1024, nx=448)
+          (c_proj): Conv1D(nf=448, nx=1024)
+          (act): NewGELUActivation()
+          (dropout): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+    (ln_f): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+  )
+  (pred_heads): Sequential(
+    (0): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (1): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (2): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (3): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (4): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (5): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (6): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (7): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (8): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (9): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (10): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (11): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (12): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (13): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (14): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (15): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (16): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (17): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (18): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (19): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (20): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (21): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (22): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (23): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (24): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (25): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (26): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (27): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (28): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (29): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (30): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (31): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (32): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (33): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (34): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (35): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (36): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (37): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (38): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (39): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (40): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (41): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (42): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (43): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (44): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (45): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (46): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (47): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (48): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (49): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (50): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (51): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (52): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (53): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (54): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (55): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (56): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (57): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (58): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (59): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (60): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (61): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (62): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (63): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+  )
+  (loss_fct): CrossEntropyLoss()
+)
+Tue 16 Jun 2026 17:12:59 INFO  #Embedding parameters: 7340928
+#Non-embedding parameters: 16347776
+#Total trainable parameters: 23688704
+
+Tue 16 Jun 2026 17:13:08 INFO  [Epoch 1] Train Loss: 6.629079676222527
+Tue 16 Jun 2026 17:13:16 INFO  [Epoch 1] Val Results: OrderedDict([('ndcg@5', 0.00019757427799049765), ('ndcg@10', 0.0005692762206308544), ('recall@5', 0.0003606016980484128), ('recall@10', 0.0015454358654096723), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:13:16 INFO  [Epoch 1] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:13:23 INFO  [Epoch 2] Train Loss: 5.736816236342507
+Tue 16 Jun 2026 17:13:31 INFO  [Epoch 2] Val Results: OrderedDict([('ndcg@5', 0.003397981869056821), ('ndcg@10', 0.004634783137589693), ('recall@5', 0.004790850915014744), ('recall@10', 0.008602925576269627), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:13:31 INFO  [Epoch 2] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:13:39 INFO  [Epoch 3] Train Loss: 5.4989080538694886
+Tue 16 Jun 2026 17:13:47 INFO  [Epoch 3] Val Results: OrderedDict([('ndcg@5', 0.0043459865264594555), ('ndcg@10', 0.005848907865583897), ('recall@5', 0.006233257707208395), ('recall@10', 0.010972593910992146), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:13:47 INFO  [Epoch 3] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:13:55 INFO  [Epoch 4] Train Loss: 5.489967340710519
+Tue 16 Jun 2026 17:14:02 INFO  [Epoch 4] Val Results: OrderedDict([('ndcg@5', 0.004787599202245474), ('ndcg@10', 0.005997777916491032), ('recall@5', 0.007315062917768955), ('recall@10', 0.011075623333454132), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:14:03 INFO  [Epoch 4] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:14:10 INFO  [Epoch 5] Train Loss: 5.488223837709975
+Tue 16 Jun 2026 17:14:18 INFO  [Epoch 5] Val Results: OrderedDict([('ndcg@5', 0.005048978142440319), ('ndcg@10', 0.006320516113191843), ('recall@5', 0.007315062917768955), ('recall@10', 0.011333196423947811), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:14:18 INFO  [Epoch 5] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:14:26 INFO  [Epoch 6] Train Loss: 5.488199447763377
+Tue 16 Jun 2026 17:14:34 INFO  [Epoch 6] Val Results: OrderedDict([('ndcg@5', 0.004825533367693424), ('ndcg@10', 0.006114404182881117), ('recall@5', 0.007521120831370354), ('recall@10', 0.011590768583118916), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:14:41 INFO  [Epoch 7] Train Loss: 5.488660675355757
+Tue 16 Jun 2026 17:14:49 INFO  [Epoch 7] Val Results: OrderedDict([('ndcg@5', 0.0030023425351828337), ('ndcg@10', 0.004283328540623188), ('recall@5', 0.005615083500742912), ('recall@10', 0.009633217006921768), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:14:57 INFO  [Epoch 8] Train Loss: 5.489418731338676
+Tue 16 Jun 2026 17:15:05 INFO  [Epoch 8] Val Results: OrderedDict([('ndcg@5', 0.0024724220857024193), ('ndcg@10', 0.004101769998669624), ('recall@5', 0.004481764044612646), ('recall@10', 0.009427158161997795), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:15:12 INFO  [Epoch 9] Train Loss: 5.490107245828914
+Tue 16 Jun 2026 17:15:20 INFO  [Epoch 9] Val Results: OrderedDict([('ndcg@5', 0.003544157138094306), ('ndcg@10', 0.004440167918801308), ('recall@5', 0.005924170836806297), ('recall@10', 0.008757469244301319), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:15:28 INFO  [Epoch 10] Train Loss: 5.4907494303823885
+Tue 16 Jun 2026 17:15:35 INFO  [Epoch 10] Val Results: OrderedDict([('ndcg@5', 0.003619716502726078), ('ndcg@10', 0.004587305709719658), ('recall@5', 0.0060271997936069965), ('recall@10', 0.009066556580364704), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:15:43 INFO  [Epoch 11] Train Loss: 5.491039670746902
+Tue 16 Jun 2026 17:15:51 INFO  [Epoch 11] Val Results: OrderedDict([('ndcg@5', 0.003959876485168934), ('ndcg@10', 0.005533622577786446), ('recall@5', 0.005563568789511919), ('recall@10', 0.010457448661327362), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:15:59 INFO  [Epoch 12] Train Loss: 5.490238672015311
+Tue 16 Jun 2026 17:16:06 INFO  [Epoch 12] Val Results: OrderedDict([('ndcg@5', 0.004268292337656021), ('ndcg@10', 0.005623208824545145), ('recall@5', 0.006799917668104172), ('recall@10', 0.010972593910992146), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:16:14 INFO  [Epoch 13] Train Loss: 5.488482080656906
+Tue 16 Jun 2026 17:16:21 INFO  [Epoch 13] Val Results: OrderedDict([('ndcg@5', 0.004031897988170385), ('ndcg@10', 0.005274235736578703), ('recall@5', 0.006902946624904871), ('recall@10', 0.010715021751821041), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:16:29 INFO  [Epoch 14] Train Loss: 5.4874664229908205
+Tue 16 Jun 2026 17:16:37 INFO  [Epoch 14] Val Results: OrderedDict([('ndcg@5', 0.003584418212994933), ('ndcg@10', 0.004833121784031391), ('recall@5', 0.0054090251214802265), ('recall@10', 0.009324129670858383), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:16:44 INFO  [Epoch 15] Train Loss: 5.486412289498866
+Tue 16 Jun 2026 17:16:52 INFO  [Epoch 15] Val Results: OrderedDict([('ndcg@5', 0.004259633366018534), ('ndcg@10', 0.005265442654490471), ('recall@5', 0.0066968887113034725), ('recall@10', 0.009839274920523167), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:17:00 INFO  [Epoch 16] Train Loss: 5.4855550678297025
+Tue 16 Jun 2026 17:17:08 INFO  [Epoch 16] Val Results: OrderedDict([('ndcg@5', 0.003294154768809676), ('ndcg@10', 0.004626567475497723), ('recall@5', 0.0054090251214802265), ('recall@10', 0.009530187584459782), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:17:15 INFO  [Epoch 17] Train Loss: 5.4840481199067215
+Tue 16 Jun 2026 17:17:23 INFO  [Epoch 17] Val Results: OrderedDict([('ndcg@5', 0.004778522066771984), ('ndcg@10', 0.0061007775366306305), ('recall@5', 0.006902946624904871), ('recall@10', 0.011075623333454132), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:17:30 INFO  [Epoch 18] Train Loss: 5.480702159048497
+Tue 16 Jun 2026 17:17:38 INFO  [Epoch 18] Val Results: OrderedDict([('ndcg@5', 0.002495275577530265), ('ndcg@10', 0.003744839457795024), ('recall@5', 0.004481764044612646), ('recall@10', 0.008448382839560509), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:17:46 INFO  [Epoch 19] Train Loss: 5.476160729068449
+Tue 16 Jun 2026 17:17:53 INFO  [Epoch 19] Val Results: OrderedDict([('ndcg@5', 0.004268716089427471), ('ndcg@10', 0.005398878827691078), ('recall@5', 0.006439316086471081), ('recall@10', 0.009942303411662579), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:18:01 INFO  [Epoch 20] Train Loss: 5.471174651178821
+Tue 16 Jun 2026 17:18:09 INFO  [Epoch 20] Val Results: OrderedDict([('ndcg@5', 0.004330824129283428), ('ndcg@10', 0.005171074066311121), ('recall@5', 0.006130228750407696), ('recall@10', 0.0088089844211936), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:18:16 INFO  [Epoch 21] Train Loss: 5.465761201135043
+Tue 16 Jun 2026 17:18:24 INFO  [Epoch 21] Val Results: OrderedDict([('ndcg@5', 0.004164473153650761), ('ndcg@10', 0.00567974615842104), ('recall@5', 0.0063878013752400875), ('recall@10', 0.011075623333454132), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:18:32 INFO  [Epoch 22] Train Loss: 5.460014715962027
+Tue 16 Jun 2026 17:18:39 INFO  [Epoch 22] Val Results: OrderedDict([('ndcg@5', 0.004708355758339167), ('ndcg@10', 0.0061013237573206425), ('recall@5', 0.007212033960968256), ('recall@10', 0.01153925433754921), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:18:47 INFO  [Epoch 23] Train Loss: 5.455134051969682
+Tue 16 Jun 2026 17:18:55 INFO  [Epoch 23] Val Results: OrderedDict([('ndcg@5', 0.003065517172217369), ('ndcg@10', 0.00439080037176609), ('recall@5', 0.005099938251078129), ('recall@10', 0.00916958600282669), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:19:02 INFO  [Epoch 24] Train Loss: 5.449554213162126
+Tue 16 Jun 2026 17:19:10 INFO  [Epoch 24] Val Results: OrderedDict([('ndcg@5', 0.00535054923966527), ('ndcg@10', 0.007184453774243593), ('recall@5', 0.007984751835465431), ('recall@10', 0.013702863827347755), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:19:10 INFO  [Epoch 24] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:19:18 INFO  [Epoch 25] Train Loss: 5.444391519173808
+Tue 16 Jun 2026 17:19:26 INFO  [Epoch 25] Val Results: OrderedDict([('ndcg@5', 0.00604777317494154), ('ndcg@10', 0.008062411099672318), ('recall@5', 0.008860498666763306), ('recall@10', 0.0151967853307724), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:19:26 INFO  [Epoch 25] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:19:33 INFO  [Epoch 26] Train Loss: 5.437522164706526
+Tue 16 Jun 2026 17:19:41 INFO  [Epoch 26] Val Results: OrderedDict([('ndcg@5', 0.0036051699426025152), ('ndcg@10', 0.006205161567777395), ('recall@5', 0.0057181124575436115), ('recall@10', 0.013857407495379448), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:19:49 INFO  [Epoch 27] Train Loss: 5.431680377872511
+Tue 16 Jun 2026 17:19:56 INFO  [Epoch 27] Val Results: OrderedDict([('ndcg@5', 0.006058905739337206), ('ndcg@10', 0.008522968739271164), ('recall@5', 0.009787759743630886), ('recall@10', 0.017411909997463226), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:19:57 INFO  [Epoch 27] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:20:04 INFO  [Epoch 28] Train Loss: 5.4246467502637845
+Tue 16 Jun 2026 17:20:12 INFO  [Epoch 28] Val Results: OrderedDict([('ndcg@5', 0.00715956324711442), ('ndcg@10', 0.009664121083915234), ('recall@5', 0.011590768583118916), ('recall@10', 0.01942097581923008), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:20:12 INFO  [Epoch 28] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:20:20 INFO  [Epoch 29] Train Loss: 5.415388847219533
+Tue 16 Jun 2026 17:20:27 INFO  [Epoch 29] Val Results: OrderedDict([('ndcg@5', 0.007505438290536404), ('ndcg@10', 0.009672708809375763), ('recall@5', 0.011384710669517517), ('recall@10', 0.01818462833762169), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:20:27 INFO  [Epoch 29] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:20:35 INFO  [Epoch 30] Train Loss: 5.407313533212947
+Tue 16 Jun 2026 17:20:43 INFO  [Epoch 30] Val Results: OrderedDict([('ndcg@5', 0.008838561363518238), ('ndcg@10', 0.011968052946031094), ('recall@5', 0.012775602750480175), ('recall@10', 0.02261487767100334), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:20:43 INFO  [Epoch 30] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:20:51 INFO  [Epoch 31] Train Loss: 5.399070794554962
+Tue 16 Jun 2026 17:20:58 INFO  [Epoch 31] Val Results: OrderedDict([('ndcg@5', 0.006629541516304016), ('ndcg@10', 0.009755201637744904), ('recall@5', 0.010611992329359055), ('recall@10', 0.020296724513173103), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:21:06 INFO  [Epoch 32] Train Loss: 5.389704556300722
+Tue 16 Jun 2026 17:21:14 INFO  [Epoch 32] Val Results: OrderedDict([('ndcg@5', 0.0096789775416255), ('ndcg@10', 0.013063994236290455), ('recall@5', 0.014114980585873127), ('recall@10', 0.024726973846554756), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:21:14 INFO  [Epoch 32] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:21:22 INFO  [Epoch 33] Train Loss: 5.379696106088573
+Tue 16 Jun 2026 17:21:30 INFO  [Epoch 33] Val Results: OrderedDict([('ndcg@5', 0.010190468281507492), ('ndcg@10', 0.013000226579606533), ('recall@5', 0.01633010432124138), ('recall@10', 0.025190602988004684), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:21:37 INFO  [Epoch 34] Train Loss: 5.370095724346994
+Tue 16 Jun 2026 17:21:45 INFO  [Epoch 34] Val Results: OrderedDict([('ndcg@5', 0.011212561279535294), ('ndcg@10', 0.014959074556827545), ('recall@5', 0.016845250502228737), ('recall@10', 0.02859056182205677), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:21:45 INFO  [Epoch 34] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:21:53 INFO  [Epoch 35] Train Loss: 5.361620141171861
+Tue 16 Jun 2026 17:22:01 INFO  [Epoch 35] Val Results: OrderedDict([('ndcg@5', 0.011905538849532604), ('ndcg@10', 0.015979809686541557), ('recall@5', 0.018545228987932205), ('recall@10', 0.031114773824810982), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:22:01 INFO  [Epoch 35] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:22:09 INFO  [Epoch 36] Train Loss: 5.351985268209172
+Tue 16 Jun 2026 17:22:16 INFO  [Epoch 36] Val Results: OrderedDict([('ndcg@5', 0.013624342158436775), ('ndcg@10', 0.01753811165690422), ('recall@5', 0.02132701501250267), ('recall@10', 0.03348444402217865), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:22:16 INFO  [Epoch 36] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:22:24 INFO  [Epoch 37] Train Loss: 5.343264448231664
+Tue 16 Jun 2026 17:22:32 INFO  [Epoch 37] Val Results: OrderedDict([('ndcg@5', 0.014086389914155006), ('ndcg@10', 0.018331892788410187), ('recall@5', 0.0217906441539526), ('recall@10', 0.035081394016742706), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:22:32 INFO  [Epoch 37] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:22:40 INFO  [Epoch 38] Train Loss: 5.3337423006693525
+Tue 16 Jun 2026 17:22:48 INFO  [Epoch 38] Val Results: OrderedDict([('ndcg@5', 0.01508442871272564), ('ndcg@10', 0.01954156532883644), ('recall@5', 0.02307850867509842), ('recall@10', 0.03698743134737015), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:22:48 INFO  [Epoch 38] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:22:56 INFO  [Epoch 39] Train Loss: 5.326213025498665
+Tue 16 Jun 2026 17:23:03 INFO  [Epoch 39] Val Results: OrderedDict([('ndcg@5', 0.014745376072824001), ('ndcg@10', 0.019485509023070335), ('recall@5', 0.02323305234313011), ('recall@10', 0.038017719984054565), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:23:11 INFO  [Epoch 40] Train Loss: 5.317346074115271
+Tue 16 Jun 2026 17:23:19 INFO  [Epoch 40] Val Results: OrderedDict([('ndcg@5', 0.01631270907819271), ('ndcg@10', 0.020723264664411545), ('recall@5', 0.025190602988004684), ('recall@10', 0.03894498199224472), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:23:19 INFO  [Epoch 40] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:23:27 INFO  [Epoch 41] Train Loss: 5.307825225523149
+Tue 16 Jun 2026 17:23:34 INFO  [Epoch 41] Val Results: OrderedDict([('ndcg@5', 0.016840340569615364), ('ndcg@10', 0.021906226873397827), ('recall@5', 0.02560272067785263), ('recall@10', 0.04136616364121437), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:23:35 INFO  [Epoch 41] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:23:43 INFO  [Epoch 42] Train Loss: 5.297894214761668
+Tue 16 Jun 2026 17:23:51 INFO  [Epoch 42] Val Results: OrderedDict([('ndcg@5', 0.016912994906306267), ('ndcg@10', 0.02173224836587906), ('recall@5', 0.026478467509150505), ('recall@10', 0.041623737663030624), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:23:59 INFO  [Epoch 43] Train Loss: 5.286913751185625
+Tue 16 Jun 2026 17:24:06 INFO  [Epoch 43] Val Results: OrderedDict([('ndcg@5', 0.019648151472210884), ('ndcg@10', 0.024594195187091827), ('recall@5', 0.030239026993513107), ('recall@10', 0.045796412974596024), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:24:07 INFO  [Epoch 43] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:24:14 INFO  [Epoch 44] Train Loss: 5.278122496330875
+Tue 16 Jun 2026 17:24:22 INFO  [Epoch 44] Val Results: OrderedDict([('ndcg@5', 0.018693171441555023), ('ndcg@10', 0.023650947958230972), ('recall@5', 0.029672367498278618), ('recall@10', 0.04512672498822212), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:24:29 INFO  [Epoch 45] Train Loss: 5.267254758155209
+Tue 16 Jun 2026 17:24:37 INFO  [Epoch 45] Val Results: OrderedDict([('ndcg@5', 0.02030382864177227), ('ndcg@10', 0.02563309855759144), ('recall@5', 0.03157840669155121), ('recall@10', 0.04816608130931854), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:24:38 INFO  [Epoch 45] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:24:45 INFO  [Epoch 46] Train Loss: 5.259266392938022
+Tue 16 Jun 2026 17:24:53 INFO  [Epoch 46] Val Results: OrderedDict([('ndcg@5', 0.020994920283555984), ('ndcg@10', 0.026897648349404335), ('recall@5', 0.03152688965201378), ('recall@10', 0.04991757497191429), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:24:53 INFO  [Epoch 46] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:25:01 INFO  [Epoch 47] Train Loss: 5.247671231456186
+Tue 16 Jun 2026 17:25:09 INFO  [Epoch 47] Val Results: OrderedDict([('ndcg@5', 0.021685274317860603), ('ndcg@10', 0.02726701833307743), ('recall@5', 0.033123839646577835), ('recall@10', 0.05048423632979393), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:25:09 INFO  [Epoch 47] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:25:17 INFO  [Epoch 48] Train Loss: 5.237704622334447
+Tue 16 Jun 2026 17:25:24 INFO  [Epoch 48] Val Results: OrderedDict([('ndcg@5', 0.02260286919772625), ('ndcg@10', 0.028771458193659782), ('recall@5', 0.03472078964114189), ('recall@10', 0.05398722365498543), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:25:24 INFO  [Epoch 48] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:25:32 INFO  [Epoch 49] Train Loss: 5.227153399894977
+Tue 16 Jun 2026 17:25:40 INFO  [Epoch 49] Val Results: OrderedDict([('ndcg@5', 0.024015605449676514), ('ndcg@10', 0.030163930729031563), ('recall@5', 0.03606016933917999), ('recall@10', 0.05517205968499184), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:25:40 INFO  [Epoch 49] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:25:47 INFO  [Epoch 50] Train Loss: 5.216239967565427
+Tue 16 Jun 2026 17:25:55 INFO  [Epoch 50] Val Results: OrderedDict([('ndcg@5', 0.02359587326645851), ('ndcg@10', 0.029917212203145027), ('recall@5', 0.036111682653427124), ('recall@10', 0.05573871731758118), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:26:03 INFO  [Epoch 51] Train Loss: 5.205714269616138
+Tue 16 Jun 2026 17:26:11 INFO  [Epoch 51] Val Results: OrderedDict([('ndcg@5', 0.02537628635764122), ('ndcg@10', 0.03219696506857872), ('recall@5', 0.0379146933555603), ('recall@10', 0.05913867801427841), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:26:11 INFO  [Epoch 51] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:26:19 INFO  [Epoch 52] Train Loss: 5.195540115751069
+Tue 16 Jun 2026 17:26:26 INFO  [Epoch 52] Val Results: OrderedDict([('ndcg@5', 0.025788359344005585), ('ndcg@10', 0.03277314826846123), ('recall@5', 0.03894498199224472), ('recall@10', 0.0607871413230896), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:26:27 INFO  [Epoch 52] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:26:35 INFO  [Epoch 53] Train Loss: 5.182615888529811
+Tue 16 Jun 2026 17:26:42 INFO  [Epoch 53] Val Results: OrderedDict([('ndcg@5', 0.025963442400097847), ('ndcg@10', 0.032575711607933044), ('recall@5', 0.039151038974523544), ('recall@10', 0.059859879314899445), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:26:50 INFO  [Epoch 54] Train Loss: 5.170825075829166
+Tue 16 Jun 2026 17:26:57 INFO  [Epoch 54] Val Results: OrderedDict([('ndcg@5', 0.027168389409780502), ('ndcg@10', 0.0337253212928772), ('recall@5', 0.04023284465074539), ('recall@10', 0.06068411469459534), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:26:58 INFO  [Epoch 54] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:27:05 INFO  [Epoch 55] Train Loss: 5.160856559358794
+Tue 16 Jun 2026 17:27:13 INFO  [Epoch 55] Val Results: OrderedDict([('ndcg@5', 0.027824636548757553), ('ndcg@10', 0.03481524810194969), ('recall@5', 0.04188131168484688), ('recall@10', 0.0636204406619072), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:27:13 INFO  [Epoch 55] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:27:21 INFO  [Epoch 56] Train Loss: 5.146222843520943
+Tue 16 Jun 2026 17:27:29 INFO  [Epoch 56] Val Results: OrderedDict([('ndcg@5', 0.028139756992459297), ('ndcg@10', 0.03565165027976036), ('recall@5', 0.04265403002500534), ('recall@10', 0.06604162603616714), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:27:29 INFO  [Epoch 56] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:27:36 INFO  [Epoch 57] Train Loss: 5.133095089046434
+Tue 16 Jun 2026 17:27:44 INFO  [Epoch 57] Val Results: OrderedDict([('ndcg@5', 0.029130663722753525), ('ndcg@10', 0.03669579699635506), ('recall@5', 0.04373583197593689), ('recall@10', 0.06727797538042068), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:27:44 INFO  [Epoch 57] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:27:52 INFO  [Epoch 58] Train Loss: 5.119524374775503
+Tue 16 Jun 2026 17:27:59 INFO  [Epoch 58] Val Results: OrderedDict([('ndcg@5', 0.030771000310778618), ('ndcg@10', 0.03828180208802223), ('recall@5', 0.04615701735019684), ('recall@10', 0.06954461336135864), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:28:00 INFO  [Epoch 58] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:28:07 INFO  [Epoch 59] Train Loss: 5.103385892407648
+Tue 16 Jun 2026 17:28:15 INFO  [Epoch 59] Val Results: OrderedDict([('ndcg@5', 0.03052443638443947), ('ndcg@10', 0.038203366100788116), ('recall@5', 0.045950956642627716), ('recall@10', 0.0698021873831749), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:28:23 INFO  [Epoch 60] Train Loss: 5.089132150014241
+Tue 16 Jun 2026 17:28:30 INFO  [Epoch 60] Val Results: OrderedDict([('ndcg@5', 0.031775373965501785), ('ndcg@10', 0.03996698930859566), ('recall@5', 0.047135792672634125), ('recall@10', 0.07279002666473389), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:28:30 INFO  [Epoch 60] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:28:38 INFO  [Epoch 61] Train Loss: 5.074315082067731
+Tue 16 Jun 2026 17:28:46 INFO  [Epoch 61] Val Results: OrderedDict([('ndcg@5', 0.032066475600004196), ('ndcg@10', 0.04027304798364639), ('recall@5', 0.04796002432703972), ('recall@10', 0.07325365394353867), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:28:46 INFO  [Epoch 61] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:28:54 INFO  [Epoch 62] Train Loss: 5.0576333780398315
+Tue 16 Jun 2026 17:29:01 INFO  [Epoch 62] Val Results: OrderedDict([('ndcg@5', 0.033228494226932526), ('ndcg@10', 0.041258227080106735), ('recall@5', 0.04971151798963547), ('recall@10', 0.07474757730960846), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:29:01 INFO  [Epoch 62] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:29:09 INFO  [Epoch 63] Train Loss: 5.041712530728044
+Tue 16 Jun 2026 17:29:17 INFO  [Epoch 63] Val Results: OrderedDict([('ndcg@5', 0.03399865701794624), ('ndcg@10', 0.04240655153989792), ('recall@5', 0.050278179347515106), ('recall@10', 0.07634452730417252), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:29:17 INFO  [Epoch 63] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:29:25 INFO  [Epoch 64] Train Loss: 5.027193606584921
+Tue 16 Jun 2026 17:29:32 INFO  [Epoch 64] Val Results: OrderedDict([('ndcg@5', 0.03501930832862854), ('ndcg@10', 0.04331184923648834), ('recall@5', 0.05187512934207916), ('recall@10', 0.07763238996267319), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:29:32 INFO  [Epoch 64] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:29:40 INFO  [Epoch 65] Train Loss: 5.009655892163858
+Tue 16 Jun 2026 17:29:48 INFO  [Epoch 65] Val Results: OrderedDict([('ndcg@5', 0.03618627041578293), ('ndcg@10', 0.04448103904724121), ('recall@5', 0.05290541797876358), ('recall@10', 0.07861116528511047), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:29:48 INFO  [Epoch 65] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:29:55 INFO  [Epoch 66] Train Loss: 4.992876135069748
+Tue 16 Jun 2026 17:30:03 INFO  [Epoch 66] Val Results: OrderedDict([('ndcg@5', 0.03534592315554619), ('ndcg@10', 0.04347644001245499), ('recall@5', 0.05182361602783203), ('recall@10', 0.07706573605537415), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:30:11 INFO  [Epoch 67] Train Loss: 4.974737529096933
+Tue 16 Jun 2026 17:30:18 INFO  [Epoch 67] Val Results: OrderedDict([('ndcg@5', 0.03685782477259636), ('ndcg@10', 0.04460488259792328), ('recall@5', 0.05347207933664322), ('recall@10', 0.07758087664842606), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:30:19 INFO  [Epoch 67] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:30:26 INFO  [Epoch 68] Train Loss: 4.955533986804129
+Tue 16 Jun 2026 17:30:34 INFO  [Epoch 68] Val Results: OrderedDict([('ndcg@5', 0.03700830787420273), ('ndcg@10', 0.04522620141506195), ('recall@5', 0.055017516016960144), ('recall@10', 0.08056872338056564), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:30:34 INFO  [Epoch 68] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:30:42 INFO  [Epoch 69] Train Loss: 4.938279371151979
+Tue 16 Jun 2026 17:30:49 INFO  [Epoch 69] Val Results: OrderedDict([('ndcg@5', 0.038298070430755615), ('ndcg@10', 0.04597843065857887), ('recall@5', 0.056305378675460815), ('recall@10', 0.08020811527967453), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:30:50 INFO  [Epoch 69] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:30:57 INFO  [Epoch 70] Train Loss: 4.920007705688477
+Tue 16 Jun 2026 17:31:05 INFO  [Epoch 70] Val Results: OrderedDict([('ndcg@5', 0.03820975497364998), ('ndcg@10', 0.046463336795568466), ('recall@5', 0.05522357299923897), ('recall@10', 0.0808262899518013), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:31:05 INFO  [Epoch 70] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:31:13 INFO  [Epoch 71] Train Loss: 4.903056983290048
+Tue 16 Jun 2026 17:31:20 INFO  [Epoch 71] Val Results: OrderedDict([('ndcg@5', 0.0387946292757988), ('ndcg@10', 0.04670025035738945), ('recall@5', 0.056923553347587585), ('recall@10', 0.08159901201725006), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:31:21 INFO  [Epoch 71] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:31:28 INFO  [Epoch 72] Train Loss: 4.883387017524106
+Tue 16 Jun 2026 17:31:36 INFO  [Epoch 72] Val Results: OrderedDict([('ndcg@5', 0.03876233100891113), ('ndcg@10', 0.04633219167590141), ('recall@5', 0.05774778500199318), ('recall@10', 0.08134143799543381), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:31:44 INFO  [Epoch 73] Train Loss: 4.864161370814531
+Tue 16 Jun 2026 17:31:51 INFO  [Epoch 73] Val Results: OrderedDict([('ndcg@5', 0.03931224346160889), ('ndcg@10', 0.047655340284109116), ('recall@5', 0.056872036308050156), ('recall@10', 0.08304141461849213), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:31:51 INFO  [Epoch 73] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:31:59 INFO  [Epoch 74] Train Loss: 4.848693853137137
+Tue 16 Jun 2026 17:32:07 INFO  [Epoch 74] Val Results: OrderedDict([('ndcg@5', 0.0393916592001915), ('ndcg@10', 0.04743969812989235), ('recall@5', 0.056820522993803024), ('recall@10', 0.08190809935331345), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:32:14 INFO  [Epoch 75] Train Loss: 4.82999603775726
+Tue 16 Jun 2026 17:32:22 INFO  [Epoch 75] Val Results: OrderedDict([('ndcg@5', 0.03939804062247276), ('ndcg@10', 0.04741733893752098), ('recall@5', 0.056923553347587585), ('recall@10', 0.08190809935331345), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:32:30 INFO  [Epoch 76] Train Loss: 4.810634503419372
+Tue 16 Jun 2026 17:32:37 INFO  [Epoch 76] Val Results: OrderedDict([('ndcg@5', 0.03955467417836189), ('ndcg@10', 0.04855841398239136), ('recall@5', 0.05640840902924538), ('recall@10', 0.08438079804182053), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:32:37 INFO  [Epoch 76] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:32:45 INFO  [Epoch 77] Train Loss: 4.794777163143816
+Tue 16 Jun 2026 17:32:53 INFO  [Epoch 77] Val Results: OrderedDict([('ndcg@5', 0.03952595964074135), ('ndcg@10', 0.04761170595884323), ('recall@5', 0.058056872338056564), ('recall@10', 0.08324747532606125), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:33:00 INFO  [Epoch 78] Train Loss: 4.777582585126504
+Tue 16 Jun 2026 17:33:08 INFO  [Epoch 78] Val Results: OrderedDict([('ndcg@5', 0.040292415767908096), ('ndcg@10', 0.048597875982522964), ('recall@5', 0.05893261730670929), ('recall@10', 0.08474139869213104), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:33:08 INFO  [Epoch 78] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:33:16 INFO  [Epoch 79] Train Loss: 4.757556898840543
+Tue 16 Jun 2026 17:33:24 INFO  [Epoch 79] Val Results: OrderedDict([('ndcg@5', 0.04106121510267258), ('ndcg@10', 0.04981667548418045), ('recall@5', 0.05785081535577774), ('recall@10', 0.0849989727139473), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:33:24 INFO  [Epoch 79] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:33:32 INFO  [Epoch 80] Train Loss: 4.745157948855696
+Tue 16 Jun 2026 17:33:39 INFO  [Epoch 80] Val Results: OrderedDict([('ndcg@5', 0.0408245213329792), ('ndcg@10', 0.04929433390498161), ('recall@5', 0.0587780736386776), ('recall@10', 0.08520502597093582), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:33:47 INFO  [Epoch 81] Train Loss: 4.72633269189418
+Tue 16 Jun 2026 17:33:54 INFO  [Epoch 81] Val Results: OrderedDict([('ndcg@5', 0.0410684198141098), ('ndcg@10', 0.049931690096855164), ('recall@5', 0.05857201665639877), ('recall@10', 0.08618380129337311), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:33:55 INFO  [Epoch 81] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:34:02 INFO  [Epoch 82] Train Loss: 4.708193598122432
+Tue 16 Jun 2026 17:34:10 INFO  [Epoch 82] Val Results: OrderedDict([('ndcg@5', 0.04156164824962616), ('ndcg@10', 0.04994571581482887), ('recall@5', 0.05939624831080437), ('recall@10', 0.08546259999275208), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:34:10 INFO  [Epoch 82] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:34:18 INFO  [Epoch 83] Train Loss: 4.691464890008685
+Tue 16 Jun 2026 17:34:25 INFO  [Epoch 83] Val Results: OrderedDict([('ndcg@5', 0.04133704677224159), ('ndcg@10', 0.04971226677298546), ('recall@5', 0.05913867801427841), ('recall@10', 0.0849989727139473), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:34:33 INFO  [Epoch 84] Train Loss: 4.6774043653203154
+Tue 16 Jun 2026 17:34:41 INFO  [Epoch 84] Val Results: OrderedDict([('ndcg@5', 0.04276170954108238), ('ndcg@10', 0.05028378218412399), ('recall@5', 0.06192046031355858), ('recall@10', 0.08515351265668869), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:34:41 INFO  [Epoch 84] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:34:49 INFO  [Epoch 85] Train Loss: 4.6591945735887546
+Tue 16 Jun 2026 17:34:56 INFO  [Epoch 85] Val Results: OrderedDict([('ndcg@5', 0.04177746921777725), ('ndcg@10', 0.04997451975941658), ('recall@5', 0.059344734996557236), ('recall@10', 0.08474139869213104), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:35:04 INFO  [Epoch 86] Train Loss: 4.6446618704960265
+Tue 16 Jun 2026 17:35:12 INFO  [Epoch 86] Val Results: OrderedDict([('ndcg@5', 0.04299550876021385), ('ndcg@10', 0.051030099391937256), ('recall@5', 0.06130228564143181), ('recall@10', 0.0863383486866951), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:35:12 INFO  [Epoch 86] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:35:19 INFO  [Epoch 87] Train Loss: 4.6271915819453096
+Tue 16 Jun 2026 17:35:27 INFO  [Epoch 87] Val Results: OrderedDict([('ndcg@5', 0.04167014732956886), ('ndcg@10', 0.050200264900922775), ('recall@5', 0.06001442298293114), ('recall@10', 0.0863383486866951), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:35:35 INFO  [Epoch 88] Train Loss: 4.613740910058734
+Tue 16 Jun 2026 17:35:42 INFO  [Epoch 88] Val Results: OrderedDict([('ndcg@5', 0.04226720333099365), ('ndcg@10', 0.05035000294446945), ('recall@5', 0.06089017167687416), ('recall@10', 0.08602926135063171), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:35:50 INFO  [Epoch 89] Train Loss: 4.596766603404078
+Tue 16 Jun 2026 17:35:58 INFO  [Epoch 89] Val Results: OrderedDict([('ndcg@5', 0.0428907573223114), ('ndcg@10', 0.05115131661295891), ('recall@5', 0.06228106468915939), ('recall@10', 0.08803832530975342), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:35:58 INFO  [Epoch 89] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:36:06 INFO  [Epoch 90] Train Loss: 4.583055337270101
+Tue 16 Jun 2026 17:36:13 INFO  [Epoch 90] Val Results: OrderedDict([('ndcg@5', 0.04328811913728714), ('ndcg@10', 0.05168914794921875), ('recall@5', 0.0614568293094635), ('recall@10', 0.08762621134519577), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:36:13 INFO  [Epoch 90] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:36:21 INFO  [Epoch 91] Train Loss: 4.567653096955398
+Tue 16 Jun 2026 17:36:29 INFO  [Epoch 91] Val Results: OrderedDict([('ndcg@5', 0.04230876639485359), ('ndcg@10', 0.050823695957660675), ('recall@5', 0.06089017167687416), ('recall@10', 0.08731712400913239), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:36:36 INFO  [Epoch 92] Train Loss: 4.5538097743330335
+Tue 16 Jun 2026 17:36:44 INFO  [Epoch 92] Val Results: OrderedDict([('ndcg@5', 0.04297979921102524), ('ndcg@10', 0.05133403092622757), ('recall@5', 0.06197197735309601), ('recall@10', 0.08793529868125916), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:36:52 INFO  [Epoch 93] Train Loss: 4.543240695164122
+Tue 16 Jun 2026 17:36:59 INFO  [Epoch 93] Val Results: OrderedDict([('ndcg@5', 0.04321747645735741), ('ndcg@10', 0.05178334563970566), ('recall@5', 0.061147741973400116), ('recall@10', 0.0876777246594429), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:37:00 INFO  [Epoch 93] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:37:07 INFO  [Epoch 94] Train Loss: 4.52505909711465
+Tue 16 Jun 2026 17:37:15 INFO  [Epoch 94] Val Results: OrderedDict([('ndcg@5', 0.04335254058241844), ('ndcg@10', 0.05166544392704964), ('recall@5', 0.061611372977495193), ('recall@10', 0.08742015063762665), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:37:22 INFO  [Epoch 95] Train Loss: 4.512731530200476
+Tue 16 Jun 2026 17:37:30 INFO  [Epoch 95] Val Results: OrderedDict([('ndcg@5', 0.04387867823243141), ('ndcg@10', 0.05181903764605522), ('recall@5', 0.06264166533946991), ('recall@10', 0.08736863732337952), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:37:30 INFO  [Epoch 95] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:37:38 INFO  [Epoch 96] Train Loss: 4.501458140625351
+Tue 16 Jun 2026 17:37:46 INFO  [Epoch 96] Val Results: OrderedDict([('ndcg@5', 0.04364398866891861), ('ndcg@10', 0.05138516053557396), ('recall@5', 0.0627962052822113), ('recall@10', 0.08685348927974701), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:37:53 INFO  [Epoch 97] Train Loss: 4.48651182788542
+Tue 16 Jun 2026 17:38:01 INFO  [Epoch 97] Val Results: OrderedDict([('ndcg@5', 0.04317999631166458), ('ndcg@10', 0.05186794325709343), ('recall@5', 0.0607871413230896), ('recall@10', 0.08772923797369003), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:38:01 INFO  [Epoch 97] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:38:09 INFO  [Epoch 98] Train Loss: 4.47571116480334
+Tue 16 Jun 2026 17:38:16 INFO  [Epoch 98] Val Results: OrderedDict([('ndcg@5', 0.04329758137464523), ('ndcg@10', 0.05164913460612297), ('recall@5', 0.06155985966324806), ('recall@10', 0.08742015063762665), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:38:24 INFO  [Epoch 99] Train Loss: 4.460188421709784
+Tue 16 Jun 2026 17:38:31 INFO  [Epoch 99] Val Results: OrderedDict([('ndcg@5', 0.04394325613975525), ('ndcg@10', 0.05187201127409935), ('recall@5', 0.0627962052822113), ('recall@10', 0.08726561069488525), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:38:32 INFO  [Epoch 99] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:38:39 INFO  [Epoch 100] Train Loss: 4.449827292869831
+Tue 16 Jun 2026 17:38:47 INFO  [Epoch 100] Val Results: OrderedDict([('ndcg@5', 0.04364853724837303), ('ndcg@10', 0.05243753641843796), ('recall@5', 0.06192046031355858), ('recall@10', 0.08927467465400696), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:38:47 INFO  [Epoch 100] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:38:55 INFO  [Epoch 101] Train Loss: 4.437561692862675
+Tue 16 Jun 2026 17:39:03 INFO  [Epoch 101] Val Results: OrderedDict([('ndcg@5', 0.044368576258420944), ('ndcg@10', 0.0531093068420887), ('recall@5', 0.06253863871097565), ('recall@10', 0.08963527530431747), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:39:03 INFO  [Epoch 101] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:39:10 INFO  [Epoch 102] Train Loss: 4.426770906338747
+Tue 16 Jun 2026 17:39:18 INFO  [Epoch 102] Val Results: OrderedDict([('ndcg@5', 0.04382947459816933), ('ndcg@10', 0.05210379511117935), ('recall@5', 0.06192046031355858), ('recall@10', 0.08778075128793716), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:39:26 INFO  [Epoch 103] Train Loss: 4.409833480571878
+Tue 16 Jun 2026 17:39:33 INFO  [Epoch 103] Val Results: OrderedDict([('ndcg@5', 0.04501418396830559), ('ndcg@10', 0.05304057523608208), ('recall@5', 0.06351741403341293), ('recall@10', 0.08845044672489166), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:39:41 INFO  [Epoch 104] Train Loss: 4.397163056779182
+Tue 16 Jun 2026 17:39:49 INFO  [Epoch 104] Val Results: OrderedDict([('ndcg@5', 0.04440203681588173), ('ndcg@10', 0.05210932716727257), ('recall@5', 0.06336286664009094), ('recall@10', 0.08747166395187378), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:39:56 INFO  [Epoch 105] Train Loss: 4.384839710147902
+Tue 16 Jun 2026 17:40:04 INFO  [Epoch 105] Val Results: OrderedDict([('ndcg@5', 0.0446539968252182), ('ndcg@10', 0.05266494303941727), ('recall@5', 0.06336286664009094), ('recall@10', 0.0883474126458168), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:40:12 INFO  [Epoch 106] Train Loss: 4.37213492667538
+Tue 16 Jun 2026 17:40:19 INFO  [Epoch 106] Val Results: OrderedDict([('ndcg@5', 0.04474182426929474), ('ndcg@10', 0.05329310521483421), ('recall@5', 0.06310529261827469), ('recall@10', 0.0898413360118866), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:40:19 INFO  [Epoch 106] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:40:27 INFO  [Epoch 107] Train Loss: 4.363852873615835
+Tue 16 Jun 2026 17:40:35 INFO  [Epoch 107] Val Results: OrderedDict([('ndcg@5', 0.045096322894096375), ('ndcg@10', 0.053326163440942764), ('recall@5', 0.06392952799797058), ('recall@10', 0.08958376199007034), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:40:35 INFO  [Epoch 107] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:40:43 INFO  [Epoch 108] Train Loss: 4.348197657486488
+Tue 16 Jun 2026 17:40:50 INFO  [Epoch 108] Val Results: OrderedDict([('ndcg@5', 0.044985752552747726), ('ndcg@10', 0.05317483842372894), ('recall@5', 0.06325984001159668), ('recall@10', 0.08870801329612732), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:40:58 INFO  [Epoch 109] Train Loss: 4.342388597028009
+Tue 16 Jun 2026 17:41:06 INFO  [Epoch 109] Val Results: OrderedDict([('ndcg@5', 0.04544196277856827), ('ndcg@10', 0.053154896944761276), ('recall@5', 0.06439315527677536), ('recall@10', 0.08845044672489166), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:41:13 INFO  [Epoch 110] Train Loss: 4.326899418885681
+Tue 16 Jun 2026 17:41:21 INFO  [Epoch 110] Val Results: OrderedDict([('ndcg@5', 0.04482722282409668), ('ndcg@10', 0.053342971950769424), ('recall@5', 0.062435608357191086), ('recall@10', 0.08881104737520218), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:41:21 INFO  [Epoch 110] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:41:29 INFO  [Epoch 111] Train Loss: 4.318344160058032
+Tue 16 Jun 2026 17:41:37 INFO  [Epoch 111] Val Results: OrderedDict([('ndcg@5', 0.045179739594459534), ('ndcg@10', 0.05354754626750946), ('recall@5', 0.06325984001159668), ('recall@10', 0.0891716480255127), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:41:37 INFO  [Epoch 111] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:41:44 INFO  [Epoch 112] Train Loss: 4.304681531314192
+Tue 16 Jun 2026 17:41:52 INFO  [Epoch 112] Val Results: OrderedDict([('ndcg@5', 0.045601241290569305), ('ndcg@10', 0.053771961480379105), ('recall@5', 0.06392952799797058), ('recall@10', 0.08937770128250122), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:41:52 INFO  [Epoch 112] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:42:00 INFO  [Epoch 113] Train Loss: 4.294215903885063
+Tue 16 Jun 2026 17:42:07 INFO  [Epoch 113] Val Results: OrderedDict([('ndcg@5', 0.045277539640665054), ('ndcg@10', 0.053195785731077194), ('recall@5', 0.06356892734766006), ('recall@10', 0.08808983862400055), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:42:15 INFO  [Epoch 114] Train Loss: 4.285163605350188
+Tue 16 Jun 2026 17:42:23 INFO  [Epoch 114] Val Results: OrderedDict([('ndcg@5', 0.04473178833723068), ('ndcg@10', 0.05342816188931465), ('recall@5', 0.06310529261827469), ('recall@10', 0.09009891003370285), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:42:30 INFO  [Epoch 115] Train Loss: 4.273809487792267
+Tue 16 Jun 2026 17:42:38 INFO  [Epoch 115] Val Results: OrderedDict([('ndcg@5', 0.04554176330566406), ('ndcg@10', 0.05363260954618454), ('recall@5', 0.06454770267009735), ('recall@10', 0.0896867886185646), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:42:46 INFO  [Epoch 116] Train Loss: 4.2625117411558655
+Tue 16 Jun 2026 17:42:53 INFO  [Epoch 116] Val Results: OrderedDict([('ndcg@5', 0.04533183574676514), ('ndcg@10', 0.05382625386118889), ('recall@5', 0.06356892734766006), ('recall@10', 0.09004739671945572), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:42:54 INFO  [Epoch 116] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:43:01 INFO  [Epoch 117] Train Loss: 4.251534050908582
+Tue 16 Jun 2026 17:43:09 INFO  [Epoch 117] Val Results: OrderedDict([('ndcg@5', 0.04532716050744057), ('ndcg@10', 0.053829316049814224), ('recall@5', 0.06382650136947632), ('recall@10', 0.09025344997644424), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:43:09 INFO  [Epoch 117] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:43:17 INFO  [Epoch 118] Train Loss: 4.2325715360970335
+Tue 16 Jun 2026 17:43:24 INFO  [Epoch 118] Val Results: OrderedDict([('ndcg@5', 0.04568592086434364), ('ndcg@10', 0.05422740429639816), ('recall@5', 0.06392952799797058), ('recall@10', 0.0905110239982605), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:43:25 INFO  [Epoch 118] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:43:32 INFO  [Epoch 119] Train Loss: 4.223037505971974
+Tue 16 Jun 2026 17:43:40 INFO  [Epoch 119] Val Results: OrderedDict([('ndcg@5', 0.04527727887034416), ('ndcg@10', 0.05376071482896805), ('recall@5', 0.06300226598978043), ('recall@10', 0.08942922204732895), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:43:48 INFO  [Epoch 120] Train Loss: 4.203970256893114
+Tue 16 Jun 2026 17:43:56 INFO  [Epoch 120] Val Results: OrderedDict([('ndcg@5', 0.045083388686180115), ('ndcg@10', 0.053704939782619476), ('recall@5', 0.06351741403341293), ('recall@10', 0.09025344997644424), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:44:03 INFO  [Epoch 121] Train Loss: 4.191120498481838
+Tue 16 Jun 2026 17:44:11 INFO  [Epoch 121] Val Results: OrderedDict([('ndcg@5', 0.0455685593187809), ('ndcg@10', 0.05396876856684685), ('recall@5', 0.0634659007191658), ('recall@10', 0.08958376199007034), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:44:19 INFO  [Epoch 122] Train Loss: 4.173498441433084
+Tue 16 Jun 2026 17:44:26 INFO  [Epoch 122] Val Results: OrderedDict([('ndcg@5', 0.045897822827100754), ('ndcg@10', 0.054250676184892654), ('recall@5', 0.06367195397615433), ('recall@10', 0.08958376199007034), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:44:27 INFO  [Epoch 122] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:44:34 INFO  [Epoch 123] Train Loss: 4.159219062191316
+Tue 16 Jun 2026 17:44:42 INFO  [Epoch 123] Val Results: OrderedDict([('ndcg@5', 0.04582872614264488), ('ndcg@10', 0.05420524999499321), ('recall@5', 0.06372346729040146), ('recall@10', 0.0896867886185646), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:44:50 INFO  [Epoch 124] Train Loss: 4.142134734953957
+Tue 16 Jun 2026 17:44:57 INFO  [Epoch 124] Val Results: OrderedDict([('ndcg@5', 0.04581405222415924), ('ndcg@10', 0.053616251796483994), ('recall@5', 0.06418710201978683), ('recall@10', 0.0883474126458168), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:45:05 INFO  [Epoch 125] Train Loss: 4.1218823071183825
+Tue 16 Jun 2026 17:45:13 INFO  [Epoch 125] Val Results: OrderedDict([('ndcg@5', 0.04587602987885475), ('ndcg@10', 0.054283156991004944), ('recall@5', 0.06398104131221771), ('recall@10', 0.09015042334794998), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:45:13 INFO  [Epoch 125] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:45:21 INFO  [Epoch 126] Train Loss: 4.104546623668451
+Tue 16 Jun 2026 17:45:28 INFO  [Epoch 126] Val Results: OrderedDict([('ndcg@5', 0.04628425091505051), ('ndcg@10', 0.05438829958438873), ('recall@5', 0.0642901286482811), ('recall@10', 0.08953224867582321), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:45:29 INFO  [Epoch 126] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:45:36 INFO  [Epoch 127] Train Loss: 4.089723748722296
+Tue 16 Jun 2026 17:45:44 INFO  [Epoch 127] Val Results: OrderedDict([('ndcg@5', 0.04627760127186775), ('ndcg@10', 0.05424775183200836), ('recall@5', 0.06470224261283875), ('recall@10', 0.08948073536157608), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:45:52 INFO  [Epoch 128] Train Loss: 4.073163139409032
+Tue 16 Jun 2026 17:45:59 INFO  [Epoch 128] Val Results: OrderedDict([('ndcg@5', 0.045809898525476456), ('ndcg@10', 0.054307952523231506), ('recall@5', 0.0636204406619072), ('recall@10', 0.09009891003370285), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:46:07 INFO  [Epoch 129] Train Loss: 4.056259325180931
+Tue 16 Jun 2026 17:46:15 INFO  [Epoch 129] Val Results: OrderedDict([('ndcg@5', 0.04570421949028969), ('ndcg@10', 0.05382475256919861), ('recall@5', 0.06392952799797058), ('recall@10', 0.0891716480255127), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:46:23 INFO  [Epoch 130] Train Loss: 4.0379478931427
+Tue 16 Jun 2026 17:46:30 INFO  [Epoch 130] Val Results: OrderedDict([('ndcg@5', 0.04631714150309563), ('ndcg@10', 0.05433262884616852), ('recall@5', 0.06465072929859161), ('recall@10', 0.08953224867582321), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:46:38 INFO  [Epoch 131] Train Loss: 4.018405190829573
+Tue 16 Jun 2026 17:46:46 INFO  [Epoch 131] Val Results: OrderedDict([('ndcg@5', 0.046160075813531876), ('ndcg@10', 0.05467218905687332), ('recall@5', 0.06449618935585022), ('recall@10', 0.09097465127706528), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:46:46 INFO  [Epoch 131] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:46:54 INFO  [Epoch 132] Train Loss: 3.9974487184107987
+Tue 16 Jun 2026 17:47:01 INFO  [Epoch 132] Val Results: OrderedDict([('ndcg@5', 0.04622921720147133), ('ndcg@10', 0.05426520109176636), ('recall@5', 0.06444467604160309), ('recall@10', 0.08942922204732895), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:47:09 INFO  [Epoch 133] Train Loss: 3.9819042600434402
+Tue 16 Jun 2026 17:47:16 INFO  [Epoch 133] Val Results: OrderedDict([('ndcg@5', 0.04629214107990265), ('ndcg@10', 0.05434355139732361), ('recall@5', 0.06449618935585022), ('recall@10', 0.08953224867582321), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:47:24 INFO  [Epoch 134] Train Loss: 3.964757190353569
+Tue 16 Jun 2026 17:47:32 INFO  [Epoch 134] Val Results: OrderedDict([('ndcg@5', 0.045779749751091), ('ndcg@10', 0.05420541390776634), ('recall@5', 0.06310529261827469), ('recall@10', 0.08932618796825409), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:47:40 INFO  [Epoch 135] Train Loss: 3.9482152324983444
+Tue 16 Jun 2026 17:47:47 INFO  [Epoch 135] Val Results: OrderedDict([('ndcg@5', 0.046174097806215286), ('ndcg@10', 0.05429272726178169), ('recall@5', 0.06418710201978683), ('recall@10', 0.08948073536157608), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:47:55 INFO  [Epoch 136] Train Loss: 3.929735564637458
+Tue 16 Jun 2026 17:48:03 INFO  [Epoch 136] Val Results: OrderedDict([('ndcg@5', 0.0463106743991375), ('ndcg@10', 0.054301667958498), ('recall@5', 0.06387801468372345), ('recall@10', 0.08865649998188019), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:48:10 INFO  [Epoch 137] Train Loss: 3.9184153025177704
+Tue 16 Jun 2026 17:48:18 INFO  [Epoch 137] Val Results: OrderedDict([('ndcg@5', 0.04613351449370384), ('ndcg@10', 0.05427641421556473), ('recall@5', 0.0641355887055397), ('recall@10', 0.08948073536157608), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:48:26 INFO  [Epoch 138] Train Loss: 3.900207231784689
+Tue 16 Jun 2026 17:48:33 INFO  [Epoch 138] Val Results: OrderedDict([('ndcg@5', 0.046281859278678894), ('ndcg@10', 0.05441821739077568), ('recall@5', 0.06398104131221771), ('recall@10', 0.0891716480255127), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:48:41 INFO  [Epoch 139] Train Loss: 3.8890381160823777
+Tue 16 Jun 2026 17:48:49 INFO  [Epoch 139] Val Results: OrderedDict([('ndcg@5', 0.0460641048848629), ('ndcg@10', 0.05467621237039566), ('recall@5', 0.0636204406619072), ('recall@10', 0.0903564840555191), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:48:49 INFO  [Epoch 139] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:48:57 INFO  [Epoch 140] Train Loss: 3.879546582013711
+Tue 16 Jun 2026 17:49:04 INFO  [Epoch 140] Val Results: OrderedDict([('ndcg@5', 0.046228665858507156), ('ndcg@10', 0.05459245666861534), ('recall@5', 0.06367195397615433), ('recall@10', 0.08958376199007034), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:49:12 INFO  [Epoch 141] Train Loss: 3.8659559173145515
+Tue 16 Jun 2026 17:49:20 INFO  [Epoch 141] Val Results: OrderedDict([('ndcg@5', 0.04642611742019653), ('ndcg@10', 0.054642677307128906), ('recall@5', 0.0642901286482811), ('recall@10', 0.08978982269763947), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:49:27 INFO  [Epoch 142] Train Loss: 3.8553101276529245
+Tue 16 Jun 2026 17:49:35 INFO  [Epoch 142] Val Results: OrderedDict([('ndcg@5', 0.04644893482327461), ('ndcg@10', 0.054789427667856216), ('recall@5', 0.06408407539129257), ('recall@10', 0.08999587595462799), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:49:36 INFO  [Epoch 142] Saved model checkpoint to ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:49:43 INFO  [Epoch 143] Train Loss: 3.8454883098602295
+Tue 16 Jun 2026 17:49:51 INFO  [Epoch 143] Val Results: OrderedDict([('ndcg@5', 0.04642019048333168), ('ndcg@10', 0.054503947496414185), ('recall@5', 0.0641355887055397), ('recall@10', 0.08922316133975983), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:49:59 INFO  [Epoch 144] Train Loss: 3.839435991199537
+Tue 16 Jun 2026 17:50:07 INFO  [Epoch 144] Val Results: OrderedDict([('ndcg@5', 0.04653368517756462), ('ndcg@10', 0.054558124393224716), ('recall@5', 0.06423861533403397), ('recall@10', 0.08912013471126556), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:50:14 INFO  [Epoch 145] Train Loss: 3.8343089147545824
+Tue 16 Jun 2026 17:50:22 INFO  [Epoch 145] Val Results: OrderedDict([('ndcg@5', 0.04637252166867256), ('ndcg@10', 0.05444694310426712), ('recall@5', 0.0641355887055397), ('recall@10', 0.0891716480255127), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:50:30 INFO  [Epoch 146] Train Loss: 3.826343273294383
+Tue 16 Jun 2026 17:50:38 INFO  [Epoch 146] Val Results: OrderedDict([('ndcg@5', 0.04654449597001076), ('ndcg@10', 0.05468865856528282), ('recall@5', 0.0641355887055397), ('recall@10', 0.08942922204732895), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:50:45 INFO  [Epoch 147] Train Loss: 3.8192525430657396
+Tue 16 Jun 2026 17:50:53 INFO  [Epoch 147] Val Results: OrderedDict([('ndcg@5', 0.046460993587970734), ('ndcg@10', 0.05463716760277748), ('recall@5', 0.06398104131221771), ('recall@10', 0.08932618796825409), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:51:01 INFO  [Epoch 148] Train Loss: 3.818516169471302
+Tue 16 Jun 2026 17:51:08 INFO  [Epoch 148] Val Results: OrderedDict([('ndcg@5', 0.046386562287807465), ('ndcg@10', 0.05447407811880112), ('recall@5', 0.06387801468372345), ('recall@10', 0.08886256068944931), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:51:16 INFO  [Epoch 149] Train Loss: 3.8170519094357545
+Tue 16 Jun 2026 17:51:23 INFO  [Epoch 149] Val Results: OrderedDict([('ndcg@5', 0.046446628868579865), ('ndcg@10', 0.054524265229701996), ('recall@5', 0.06382650136947632), ('recall@10', 0.08875952661037445), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:51:31 INFO  [Epoch 150] Train Loss: 3.8182086615726867
+Tue 16 Jun 2026 17:51:39 INFO  [Epoch 150] Val Results: OrderedDict([('ndcg@5', 0.04646838456392288), ('ndcg@10', 0.054519280791282654), ('recall@5', 0.06392952799797058), ('recall@10', 0.08881104737520218), ('n_visited_items', 11923.9990234375)])
+Tue 16 Jun 2026 17:51:39 INFO  Best epoch: 142, Best val score: 0.054789427667856216
+Tue 16 Jun 2026 17:51:39 INFO  Loaded best model checkpoint from ckpt/genrec_default-main.py_--category=Toys_and_Games_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=104_--n_probe_clusters=52-Jun-16-2026_17-12-40b049.pth
+Tue 16 Jun 2026 17:51:39 INFO  Building item profiles...
+Tue 16 Jun 2026 17:51:39 INFO  Running k-means with 104 clusters...
+Tue 16 Jun 2026 17:51:51 INFO  Cluster search ready: 104 clusters, avg 114.7 items/cluster, max 447 items/cluster, init took 11.92s
+Tue 16 Jun 2026 17:52:00 INFO  Test Results: OrderedDict([('ndcg@5', 0.03370152413845062), ('ndcg@10', 0.039296772330999374), ('recall@5', 0.0469297356903553), ('recall@10', 0.06439315527677536), ('n_visited_items', 6194.3974609375)])

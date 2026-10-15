@@ -1,0 +1,13 @@
+__pycache__/
+
+*.pt
+*.pth
+
+ckpt/
+logs/
+cache/
+wandb/
+outputs/
+
+memgen-annotations/
+memgen-checkpoints/

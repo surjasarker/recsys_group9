@@ -1,0 +1,10 @@
+Wed 17 Jun 2026 02:34:21 INFO  Device: cuda
+Wed 17 Jun 2026 02:34:21 INFO  [DATASET] Amazon Reviews 2014 for category: Movies_and_TV
+Wed 17 Jun 2026 02:34:21 INFO  [DATASET] Reviews have been processed...
+Wed 17 Jun 2026 02:34:22 INFO  [DATASET] Metadata has been processed...
+Wed 17 Jun 2026 02:34:22 INFO  [Dataset] AmazonReviews2014
+	Number of users: 123961
+	Number of items: 50053
+	Number of interactions: 1697533
+	Average item sequence length: 13.694089270012343
+Wed 17 Jun 2026 02:34:33 INFO  [TOKENIZER] Encoding sentence embeddings...

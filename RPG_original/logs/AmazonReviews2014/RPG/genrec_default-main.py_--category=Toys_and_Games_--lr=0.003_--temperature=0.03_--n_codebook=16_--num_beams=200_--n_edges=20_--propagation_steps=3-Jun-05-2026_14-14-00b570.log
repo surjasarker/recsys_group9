@@ -1,0 +1,10 @@
+Fri 05 Jun 2026 14:14:06 INFO  Device: cuda
+Fri 05 Jun 2026 14:14:06 INFO  [DATASET] Amazon Reviews 2014 for category: Toys_and_Games
+Fri 05 Jun 2026 14:14:06 INFO  [DATASET] Reviews have been processed...
+Fri 05 Jun 2026 14:14:06 INFO  [DATASET] Metadata has been processed...
+Fri 05 Jun 2026 14:14:06 INFO  [Dataset] AmazonReviews2014
+	Number of users: 19413
+	Number of items: 11925
+	Number of interactions: 167597
+	Average item sequence length: 8.633235460773708
+Fri 05 Jun 2026 14:14:12 INFO  [TOKENIZER] Encoding sentence embeddings...

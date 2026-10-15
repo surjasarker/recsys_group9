@@ -1,0 +1,22 @@
+Fri 05 Jun 2026 14:21:17 INFO  Device: cuda
+Fri 05 Jun 2026 14:21:17 INFO  [DATASET] Amazon Reviews 2014 for category: Toys_and_Games
+Fri 05 Jun 2026 14:21:17 INFO  [DATASET] Reviews have been processed...
+Fri 05 Jun 2026 14:21:17 INFO  [DATASET] Metadata has been processed...
+Fri 05 Jun 2026 14:21:17 INFO  [Dataset] AmazonReviews2014
+	Number of users: 19413
+	Number of items: 11925
+	Number of interactions: 167597
+	Average item sequence length: 8.633235460773708
+Fri 05 Jun 2026 14:21:23 INFO  [TOKENIZER] Encoding sentence embeddings...
+Fri 05 Jun 2026 14:21:25 INFO  HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+Fri 05 Jun 2026 14:21:25 INFO  Retrying request to /embeddings in 0.441239 seconds
+Fri 05 Jun 2026 14:21:26 INFO  HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+Fri 05 Jun 2026 14:21:26 INFO  Retrying request to /embeddings in 0.817934 seconds
+Fri 05 Jun 2026 14:21:27 INFO  HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+Fri 05 Jun 2026 14:21:27 INFO  [TOKENIZER] Failed to encode sentence embeddings for 0 - 512
+Fri 05 Jun 2026 14:21:29 INFO  [TOKENIZER] Retrying with 512 sentences
+Fri 05 Jun 2026 14:21:29 INFO  HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+Fri 05 Jun 2026 14:21:29 INFO  Retrying request to /embeddings in 0.462031 seconds
+Fri 05 Jun 2026 14:21:29 INFO  HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+Fri 05 Jun 2026 14:21:29 INFO  Retrying request to /embeddings in 0.778175 seconds
+Fri 05 Jun 2026 14:21:30 INFO  HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"

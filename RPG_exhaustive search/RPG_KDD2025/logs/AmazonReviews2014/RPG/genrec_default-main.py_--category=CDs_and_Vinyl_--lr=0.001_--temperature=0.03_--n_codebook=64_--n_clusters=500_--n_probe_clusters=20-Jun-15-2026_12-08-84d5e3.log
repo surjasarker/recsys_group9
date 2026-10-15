@@ -1,0 +1,680 @@
+Mon 15 Jun 2026 12:08:50 INFO  Device: cuda
+Mon 15 Jun 2026 12:08:50 INFO  [DATASET] Amazon Reviews 2014 for category: CDs_and_Vinyl
+Mon 15 Jun 2026 12:08:50 INFO  [DATASET] Reviews have been processed...
+Mon 15 Jun 2026 12:08:50 INFO  [DATASET] Processing metadata, mode: sentence
+Mon 15 Jun 2026 12:08:50 INFO  [DATASET] Loading metadata...
+Mon 15 Jun 2026 12:09:28 INFO  [DATASET] Extracting meta sentences...
+Mon 15 Jun 2026 12:09:33 INFO  [Dataset] AmazonReviews2014
+	Number of users: 75259
+	Number of items: 64444
+	Number of interactions: 1097592
+	Average item sequence length: 14.584195910123706
+Mon 15 Jun 2026 12:09:36 INFO  [TOKENIZER] Encoding sentence embeddings...
+Mon 15 Jun 2026 12:09:36 INFO  Use pytorch device_name: cuda:0
+Mon 15 Jun 2026 12:09:36 INFO  Load pretrained SentenceTransformer: sentence-transformers/sentence-t5-base
+Mon 15 Jun 2026 12:10:41 INFO  [TOKENIZER] Applying PCA to sentence embeddings...
+Mon 15 Jun 2026 12:10:41 INFO  [TOKENIZER] Sentence embeddings shape: (64443, 128)
+Mon 15 Jun 2026 12:10:42 INFO  [TOKENIZER] Items for training: 64393 of 64443
+Mon 15 Jun 2026 12:10:42 INFO  Loading faiss with AVX512 support.
+Mon 15 Jun 2026 12:10:42 INFO  Successfully loaded faiss with AVX512 support.
+Mon 15 Jun 2026 12:10:42 INFO  [TOKENIZER] Training index...
+Mon 15 Jun 2026 12:11:32 INFO  [TOKENIZER] Saving semantic IDs to cache/AmazonReviews2014/CDs_and_Vinyl/processed/sentence-t5-base_OPQ64,IVF1,PQ64x8.sem_ids...
+Mon 15 Jun 2026 12:11:33 INFO  [TOKENIZER] Loading semantic IDs from cache/AmazonReviews2014/CDs_and_Vinyl/processed/sentence-t5-base_OPQ64,IVF1,PQ64x8.sem_ids...
+Mon 15 Jun 2026 12:13:35 INFO  RPG(
+  (gpt2): GPT2Model(
+    (wte): Embedding(16386, 448)
+    (wpe): Embedding(50, 448)
+    (drop): Dropout(p=0.5, inplace=False)
+    (h): ModuleList(
+      (0-1): 2 x GPT2Block(
+        (ln_1): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+        (attn): GPT2Attention(
+          (c_attn): Conv1D(nf=1344, nx=448)
+          (c_proj): Conv1D(nf=448, nx=448)
+          (attn_dropout): Dropout(p=0.5, inplace=False)
+          (resid_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (ln_2): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+        (mlp): GPT2MLP(
+          (c_fc): Conv1D(nf=1024, nx=448)
+          (c_proj): Conv1D(nf=448, nx=1024)
+          (act): NewGELUActivation()
+          (dropout): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+    (ln_f): LayerNorm((448,), eps=1e-12, elementwise_affine=True, bias=True)
+  )
+  (pred_heads): Sequential(
+    (0): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (1): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (2): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (3): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (4): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (5): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (6): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (7): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (8): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (9): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (10): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (11): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (12): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (13): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (14): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (15): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (16): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (17): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (18): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (19): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (20): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (21): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (22): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (23): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (24): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (25): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (26): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (27): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (28): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (29): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (30): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (31): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (32): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (33): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (34): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (35): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (36): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (37): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (38): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (39): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (40): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (41): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (42): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (43): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (44): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (45): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (46): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (47): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (48): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (49): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (50): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (51): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (52): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (53): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (54): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (55): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (56): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (57): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (58): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (59): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (60): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (61): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (62): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+    (63): ResBlock(
+      (linear): Linear(in_features=448, out_features=448, bias=True)
+      (act): SiLU()
+    )
+  )
+  (loss_fct): CrossEntropyLoss()
+)
+Mon 15 Jun 2026 12:13:35 INFO  #Embedding parameters: 7340928
+#Non-embedding parameters: 16347776
+#Total trainable parameters: 23688704
+
+Mon 15 Jun 2026 12:15:11 INFO  [Epoch 1] Train Loss: 5.605276566301743
+Mon 15 Jun 2026 12:15:44 INFO  [Epoch 1] Val Results: OrderedDict([('ndcg@5', 0.0011821315856650472), ('ndcg@10', 0.0011987524339929223), ('recall@5', 0.0016875282162800431), ('recall@10', 0.0017406786791980267), ('n_visited_items', 64443.0), ('inference_total_s', 33.129), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:15:44 INFO  [Epoch 1] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:17:19 INFO  [Epoch 2] Train Loss: 5.49912653148334
+Mon 15 Jun 2026 12:17:52 INFO  [Epoch 2] Val Results: OrderedDict([('ndcg@5', 7.693146471865475e-05), ('ndcg@10', 9.366453014081344e-05), ('recall@5', 0.0001328762446064502), ('recall@10', 0.0001860267366282642), ('n_visited_items', 64443.0), ('inference_total_s', 32.742), ('inference_ms_per_sample', 0.435), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:19:27 INFO  [Epoch 3] Train Loss: 5.493235804546721
+Mon 15 Jun 2026 12:20:00 INFO  [Epoch 3] Val Results: OrderedDict([('ndcg@5', 7.693146471865475e-05), ('ndcg@10', 9.366453014081344e-05), ('recall@5', 0.0001328762446064502), ('recall@10', 0.0001860267366282642), ('n_visited_items', 64443.0), ('inference_total_s', 32.972), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:21:35 INFO  [Epoch 4] Train Loss: 5.4823812428492324
+Mon 15 Jun 2026 12:22:08 INFO  [Epoch 4] Val Results: OrderedDict([('ndcg@5', 0.0018044511089101434), ('ndcg@10', 0.0024495769757777452), ('recall@5', 0.0028568392153829336), ('recall@10', 0.00487655820325017), ('n_visited_items', 64443.0), ('inference_total_s', 33.045), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:22:08 INFO  [Epoch 4] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:23:43 INFO  [Epoch 5] Train Loss: 5.462583237614773
+Mon 15 Jun 2026 12:24:16 INFO  [Epoch 5] Val Results: OrderedDict([('ndcg@5', 0.003673201659694314), ('ndcg@10', 0.004845377057790756), ('recall@5', 0.005819979123771191), ('recall@10', 0.009447501040995121), ('n_visited_items', 64443.0), ('inference_total_s', 33.13), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:24:16 INFO  [Epoch 5] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:25:51 INFO  [Epoch 6] Train Loss: 5.439764728495007
+Mon 15 Jun 2026 12:26:24 INFO  [Epoch 6] Val Results: OrderedDict([('ndcg@5', 0.005201689433306456), ('ndcg@10', 0.007110338658094406), ('recall@5', 0.00870339386165142), ('recall@10', 0.014642961323261261), ('n_visited_items', 64443.0), ('inference_total_s', 32.858), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:26:24 INFO  [Epoch 6] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:27:59 INFO  [Epoch 7] Train Loss: 5.4254226774057175
+Mon 15 Jun 2026 12:28:32 INFO  [Epoch 7] Val Results: OrderedDict([('ndcg@5', 0.007223489228636026), ('ndcg@10', 0.009385373443365097), ('recall@5', 0.011507082730531693), ('recall@10', 0.0182306207716465), ('n_visited_items', 64443.0), ('inference_total_s', 33.17), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:28:32 INFO  [Epoch 7] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:30:07 INFO  [Epoch 8] Train Loss: 5.41151220570514
+Mon 15 Jun 2026 12:30:40 INFO  [Epoch 8] Val Results: OrderedDict([('ndcg@5', 0.010472136549651623), ('ndcg@10', 0.01301414705812931), ('recall@5', 0.01587871089577675), ('recall@10', 0.02375827170908451), ('n_visited_items', 64443.0), ('inference_total_s', 33.077), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:30:41 INFO  [Epoch 8] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:32:16 INFO  [Epoch 9] Train Loss: 5.39537170809012
+Mon 15 Jun 2026 12:32:49 INFO  [Epoch 9] Val Results: OrderedDict([('ndcg@5', 0.013520757667720318), ('ndcg@10', 0.01715220883488655), ('recall@5', 0.02064896747469902), ('recall@10', 0.031956735998392105), ('n_visited_items', 64443.0), ('inference_total_s', 32.951), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:32:49 INFO  [Epoch 9] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:34:24 INFO  [Epoch 10] Train Loss: 5.381329848363636
+Mon 15 Jun 2026 12:34:57 INFO  [Epoch 10] Val Results: OrderedDict([('ndcg@5', 0.01694795861840248), ('ndcg@10', 0.021131932735443115), ('recall@5', 0.026123467832803726), ('recall@10', 0.039211779832839966), ('n_visited_items', 64443.0), ('inference_total_s', 33.023), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:34:57 INFO  [Epoch 10] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:36:32 INFO  [Epoch 11] Train Loss: 5.368068038831341
+Mon 15 Jun 2026 12:37:05 INFO  [Epoch 11] Val Results: OrderedDict([('ndcg@5', 0.01720304787158966), ('ndcg@10', 0.021298713982105255), ('recall@5', 0.02641579695045948), ('recall@10', 0.03907890245318413), ('n_visited_items', 64443.0), ('inference_total_s', 32.997), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:37:05 INFO  [Epoch 11] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:38:40 INFO  [Epoch 12] Train Loss: 5.356785208759189
+Mon 15 Jun 2026 12:39:13 INFO  [Epoch 12] Val Results: OrderedDict([('ndcg@5', 0.019834468141198158), ('ndcg@10', 0.0250923540443182), ('recall@5', 0.03028249554336071), ('recall@10', 0.04663956165313721), ('n_visited_items', 64443.0), ('inference_total_s', 33.15), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:39:13 INFO  [Epoch 12] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:40:48 INFO  [Epoch 13] Train Loss: 5.346310330886091
+Mon 15 Jun 2026 12:41:21 INFO  [Epoch 13] Val Results: OrderedDict([('ndcg@5', 0.02111692540347576), ('ndcg@10', 0.026454025879502296), ('recall@5', 0.031717557460069656), ('recall@10', 0.048327088356018066), ('n_visited_items', 64443.0), ('inference_total_s', 32.853), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:41:22 INFO  [Epoch 13] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:42:58 INFO  [Epoch 14] Train Loss: 5.337238435770807
+Mon 15 Jun 2026 12:43:30 INFO  [Epoch 14] Val Results: OrderedDict([('ndcg@5', 0.022473087534308434), ('ndcg@10', 0.028071273118257523), ('recall@5', 0.03373727574944496), ('recall@10', 0.05117063969373703), ('n_visited_items', 64443.0), ('inference_total_s', 32.858), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:43:31 INFO  [Epoch 14] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:45:05 INFO  [Epoch 15] Train Loss: 5.328704858699795
+Mon 15 Jun 2026 12:45:39 INFO  [Epoch 15] Val Results: OrderedDict([('ndcg@5', 0.024002330377697945), ('ndcg@10', 0.03014286421239376), ('recall@5', 0.036301787942647934), ('recall@10', 0.05535624176263809), ('n_visited_items', 64443.0), ('inference_total_s', 33.081), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:45:39 INFO  [Epoch 15] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:47:14 INFO  [Epoch 16] Train Loss: 5.3208319022252795
+Mon 15 Jun 2026 12:47:47 INFO  [Epoch 16] Val Results: OrderedDict([('ndcg@5', 0.024538543075323105), ('ndcg@10', 0.03064887784421444), ('recall@5', 0.03724521026015282), ('recall@10', 0.05623322352766991), ('n_visited_items', 64443.0), ('inference_total_s', 33.091), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:47:47 INFO  [Epoch 16] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:49:22 INFO  [Epoch 17] Train Loss: 5.3136923421803495
+Mon 15 Jun 2026 12:49:55 INFO  [Epoch 17] Val Results: OrderedDict([('ndcg@5', 0.025857705622911453), ('ndcg@10', 0.03195483610033989), ('recall@5', 0.03887958824634552), ('recall@10', 0.057880889624357224), ('n_visited_items', 64443.0), ('inference_total_s', 32.752), ('inference_ms_per_sample', 0.435), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:49:55 INFO  [Epoch 17] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:51:30 INFO  [Epoch 18] Train Loss: 5.307107607949728
+Mon 15 Jun 2026 12:52:03 INFO  [Epoch 18] Val Results: OrderedDict([('ndcg@5', 0.025516174733638763), ('ndcg@10', 0.031800441443920135), ('recall@5', 0.03852082043886185), ('recall@10', 0.058053627610206604), ('n_visited_items', 64443.0), ('inference_total_s', 33.077), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:53:38 INFO  [Epoch 19] Train Loss: 5.301283455832501
+Mon 15 Jun 2026 12:54:11 INFO  [Epoch 19] Val Results: OrderedDict([('ndcg@5', 0.026995539665222168), ('ndcg@10', 0.03350277990102768), ('recall@5', 0.04040766507387161), ('recall@10', 0.06067129224538803), ('n_visited_items', 64443.0), ('inference_total_s', 32.996), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:54:11 INFO  [Epoch 19] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 12:55:46 INFO  [Epoch 20] Train Loss: 5.294779890450758
+Mon 15 Jun 2026 12:56:19 INFO  [Epoch 20] Val Results: OrderedDict([('ndcg@5', 0.026755601167678833), ('ndcg@10', 0.032893575727939606), ('recall@5', 0.03970342129468918), ('recall@10', 0.058824311941862106), ('n_visited_items', 64443.0), ('inference_total_s', 33.009), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:57:54 INFO  [Epoch 21] Train Loss: 5.289337455214295
+Mon 15 Jun 2026 12:58:27 INFO  [Epoch 21] Val Results: OrderedDict([('ndcg@5', 0.027435673400759697), ('ndcg@10', 0.03398218750953674), ('recall@5', 0.04108533263206482), ('recall@10', 0.06152169778943062), ('n_visited_items', 64443.0), ('inference_total_s', 32.841), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 12:58:27 INFO  [Epoch 21] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:00:01 INFO  [Epoch 22] Train Loss: 5.284133299639227
+Mon 15 Jun 2026 13:00:34 INFO  [Epoch 22] Val Results: OrderedDict([('ndcg@5', 0.028410257771611214), ('ndcg@10', 0.03540194407105446), ('recall@5', 0.04240080714225769), ('recall@10', 0.06417922675609589), ('n_visited_items', 64443.0), ('inference_total_s', 33.011), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:00:35 INFO  [Epoch 22] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:02:10 INFO  [Epoch 23] Train Loss: 5.279008019918624
+Mon 15 Jun 2026 13:02:43 INFO  [Epoch 23] Val Results: OrderedDict([('ndcg@5', 0.028294716030359268), ('ndcg@10', 0.03523801267147064), ('recall@5', 0.04226793348789215), ('recall@10', 0.06387361139059067), ('n_visited_items', 64443.0), ('inference_total_s', 33.099), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:04:18 INFO  [Epoch 24] Train Loss: 5.273952775176238
+Mon 15 Jun 2026 13:04:51 INFO  [Epoch 24] Val Results: OrderedDict([('ndcg@5', 0.02910744771361351), ('ndcg@10', 0.035957835614681244), ('recall@5', 0.0429854616522789), ('recall@10', 0.06431210041046143), ('n_visited_items', 64443.0), ('inference_total_s', 33.213), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:04:51 INFO  [Epoch 24] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:06:26 INFO  [Epoch 25] Train Loss: 5.269534854190066
+Mon 15 Jun 2026 13:06:59 INFO  [Epoch 25] Val Results: OrderedDict([('ndcg@5', 0.029839448630809784), ('ndcg@10', 0.03694475442171097), ('recall@5', 0.044234499335289), ('recall@10', 0.06631853431463242), ('n_visited_items', 64443.0), ('inference_total_s', 32.931), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:06:59 INFO  [Epoch 25] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:08:34 INFO  [Epoch 26] Train Loss: 5.2651676262351845
+Mon 15 Jun 2026 13:09:07 INFO  [Epoch 26] Val Results: OrderedDict([('ndcg@5', 0.029742669314146042), ('ndcg@10', 0.03686349466443062), ('recall@5', 0.044354088604450226), ('recall@10', 0.06647798418998718), ('n_visited_items', 64443.0), ('inference_total_s', 33.079), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:10:42 INFO  [Epoch 27] Train Loss: 5.261004239560452
+Mon 15 Jun 2026 13:11:15 INFO  [Epoch 27] Val Results: OrderedDict([('ndcg@5', 0.030578646808862686), ('ndcg@10', 0.037451524287462234), ('recall@5', 0.04529751092195511), ('recall@10', 0.0666905865073204), ('n_visited_items', 64443.0), ('inference_total_s', 33.089), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:11:15 INFO  [Epoch 27] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:12:50 INFO  [Epoch 28] Train Loss: 5.257073860918442
+Mon 15 Jun 2026 13:13:23 INFO  [Epoch 28] Val Results: OrderedDict([('ndcg@5', 0.03076408989727497), ('ndcg@10', 0.03774982690811157), ('recall@5', 0.04560312628746033), ('recall@10', 0.06724866479635239), ('n_visited_items', 64443.0), ('inference_total_s', 32.836), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:13:23 INFO  [Epoch 28] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:14:58 INFO  [Epoch 29] Train Loss: 5.253085828019211
+Mon 15 Jun 2026 13:15:31 INFO  [Epoch 29] Val Results: OrderedDict([('ndcg@5', 0.030568713322281837), ('ndcg@10', 0.03783159703016281), ('recall@5', 0.04520449787378311), ('recall@10', 0.06780674308538437), ('n_visited_items', 64443.0), ('inference_total_s', 32.817), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:15:31 INFO  [Epoch 29] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:17:06 INFO  [Epoch 30] Train Loss: 5.2494896466014
+Mon 15 Jun 2026 13:17:39 INFO  [Epoch 30] Val Results: OrderedDict([('ndcg@5', 0.030691754072904587), ('ndcg@10', 0.037724774330854416), ('recall@5', 0.0454835370182991), ('recall@10', 0.06736825406551361), ('n_visited_items', 64443.0), ('inference_total_s', 33.095), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:19:14 INFO  [Epoch 31] Train Loss: 5.245418147597598
+Mon 15 Jun 2026 13:19:47 INFO  [Epoch 31] Val Results: OrderedDict([('ndcg@5', 0.031755007803440094), ('ndcg@10', 0.038872186094522476), ('recall@5', 0.04693188890814781), ('recall@10', 0.06910893321037292), ('n_visited_items', 64443.0), ('inference_total_s', 33.1), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:19:47 INFO  [Epoch 31] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:21:22 INFO  [Epoch 32] Train Loss: 5.242214269782945
+Mon 15 Jun 2026 13:21:55 INFO  [Epoch 32] Val Results: OrderedDict([('ndcg@5', 0.03190983086824417), ('ndcg@10', 0.03908983990550041), ('recall@5', 0.04750325530767441), ('recall@10', 0.06982646137475967), ('n_visited_items', 64443.0), ('inference_total_s', 32.884), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:21:55 INFO  [Epoch 32] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:23:30 INFO  [Epoch 33] Train Loss: 5.238518821010641
+Mon 15 Jun 2026 13:24:03 INFO  [Epoch 33] Val Results: OrderedDict([('ndcg@5', 0.03151507303118706), ('ndcg@10', 0.03899276629090309), ('recall@5', 0.04687873646616936), ('recall@10', 0.07011879235506058), ('n_visited_items', 64443.0), ('inference_total_s', 32.793), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:25:38 INFO  [Epoch 34] Train Loss: 5.235671518102515
+Mon 15 Jun 2026 13:26:11 INFO  [Epoch 34] Val Results: OrderedDict([('ndcg@5', 0.03221353515982628), ('ndcg@10', 0.03952132537961006), ('recall@5', 0.047941748052835464), ('recall@10', 0.07059714943170547), ('n_visited_items', 64443.0), ('inference_total_s', 33.191), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:26:11 INFO  [Epoch 34] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:27:46 INFO  [Epoch 35] Train Loss: 5.232299748438613
+Mon 15 Jun 2026 13:28:19 INFO  [Epoch 35] Val Results: OrderedDict([('ndcg@5', 0.03274700418114662), ('ndcg@10', 0.04018216207623482), ('recall@5', 0.048459965735673904), ('recall@10', 0.07166015356779099), ('n_visited_items', 64443.0), ('inference_total_s', 33.147), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:28:19 INFO  [Epoch 35] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:29:54 INFO  [Epoch 36] Train Loss: 5.22939065271877
+Mon 15 Jun 2026 13:30:27 INFO  [Epoch 36] Val Results: OrderedDict([('ndcg@5', 0.033054955303668976), ('ndcg@10', 0.0405999980866909), ('recall@5', 0.048526402562856674), ('recall@10', 0.07197906076908112), ('n_visited_items', 64443.0), ('inference_total_s', 32.879), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:30:27 INFO  [Epoch 36] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:32:03 INFO  [Epoch 37] Train Loss: 5.225841885703924
+Mon 15 Jun 2026 13:32:36 INFO  [Epoch 37] Val Results: OrderedDict([('ndcg@5', 0.03335123509168625), ('ndcg@10', 0.040653031319379807), ('recall@5', 0.049429960548877716), ('recall@10', 0.07211193442344666), ('n_visited_items', 64443.0), ('inference_total_s', 33.013), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:32:36 INFO  [Epoch 37] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:34:11 INFO  [Epoch 38] Train Loss: 5.2231498702068855
+Mon 15 Jun 2026 13:34:44 INFO  [Epoch 38] Val Results: OrderedDict([('ndcg@5', 0.03250564634799957), ('ndcg@10', 0.03997945040464401), ('recall@5', 0.048180922865867615), ('recall@10', 0.07146084308624268), ('n_visited_items', 64443.0), ('inference_total_s', 32.969), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:36:19 INFO  [Epoch 39] Train Loss: 5.220186152982328
+Mon 15 Jun 2026 13:36:52 INFO  [Epoch 39] Val Results: OrderedDict([('ndcg@5', 0.03319856896996498), ('ndcg@10', 0.040831878781318665), ('recall@5', 0.048739004880189896), ('recall@10', 0.07243084162473679), ('n_visited_items', 64443.0), ('inference_total_s', 33.07), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:36:52 INFO  [Epoch 39] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:38:27 INFO  [Epoch 40] Train Loss: 5.21690464318065
+Mon 15 Jun 2026 13:39:00 INFO  [Epoch 40] Val Results: OrderedDict([('ndcg@5', 0.03371014446020126), ('ndcg@10', 0.04087863862514496), ('recall@5', 0.049735575914382935), ('recall@10', 0.07197906076908112), ('n_visited_items', 64443.0), ('inference_total_s', 32.803), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:39:00 INFO  [Epoch 40] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:40:35 INFO  [Epoch 41] Train Loss: 5.214118093758209
+Mon 15 Jun 2026 13:41:08 INFO  [Epoch 41] Val Results: OrderedDict([('ndcg@5', 0.03312161564826965), ('ndcg@10', 0.040546733886003494), ('recall@5', 0.04895160719752312), ('recall@10', 0.07200563699007034), ('n_visited_items', 64443.0), ('inference_total_s', 33.013), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:42:43 INFO  [Epoch 42] Train Loss: 5.211052848996596
+Mon 15 Jun 2026 13:43:16 INFO  [Epoch 42] Val Results: OrderedDict([('ndcg@5', 0.033424653112888336), ('ndcg@10', 0.04080647602677345), ('recall@5', 0.04917749762535095), ('recall@10', 0.07216508686542511), ('n_visited_items', 64443.0), ('inference_total_s', 32.985), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:44:50 INFO  [Epoch 43] Train Loss: 5.2082683300737616
+Mon 15 Jun 2026 13:45:24 INFO  [Epoch 43] Val Results: OrderedDict([('ndcg@5', 0.03415830433368683), ('ndcg@10', 0.04157393053174019), ('recall@5', 0.050399959087371826), ('recall@10', 0.0734008327126503), ('n_visited_items', 64443.0), ('inference_total_s', 33.161), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:45:24 INFO  [Epoch 43] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:46:59 INFO  [Epoch 44] Train Loss: 5.205608691351024
+Mon 15 Jun 2026 13:47:32 INFO  [Epoch 44] Val Results: OrderedDict([('ndcg@5', 0.034052275121212006), ('ndcg@10', 0.041682809591293335), ('recall@5', 0.05009434372186661), ('recall@10', 0.0737861767411232), ('n_visited_items', 64443.0), ('inference_total_s', 32.782), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:47:32 INFO  [Epoch 44] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:49:06 INFO  [Epoch 45] Train Loss: 5.202730313489435
+Mon 15 Jun 2026 13:49:39 INFO  [Epoch 45] Val Results: OrderedDict([('ndcg@5', 0.03395451605319977), ('ndcg@10', 0.04161623492836952), ('recall@5', 0.050081055611371994), ('recall@10', 0.07386589795351028), ('n_visited_items', 64443.0), ('inference_total_s', 33.006), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:51:14 INFO  [Epoch 46] Train Loss: 5.200353742604601
+Mon 15 Jun 2026 13:51:47 INFO  [Epoch 46] Val Results: OrderedDict([('ndcg@5', 0.03451671823859215), ('ndcg@10', 0.04204923287034035), ('recall@5', 0.051051050424575806), ('recall@10', 0.07451699674129486), ('n_visited_items', 64443.0), ('inference_total_s', 33.015), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:51:47 INFO  [Epoch 46] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:53:22 INFO  [Epoch 47] Train Loss: 5.197476528072272
+Mon 15 Jun 2026 13:53:55 INFO  [Epoch 47] Val Results: OrderedDict([('ndcg@5', 0.03422141075134277), ('ndcg@10', 0.04196406900882721), ('recall@5', 0.05062584578990936), ('recall@10', 0.07467644661664963), ('n_visited_items', 64443.0), ('inference_total_s', 33.099), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:55:30 INFO  [Epoch 48] Train Loss: 5.1949601177662155
+Mon 15 Jun 2026 13:56:03 INFO  [Epoch 48] Val Results: OrderedDict([('ndcg@5', 0.03469354659318924), ('ndcg@10', 0.042681917548179626), ('recall@5', 0.051290228962898254), ('recall@10', 0.07611151039600372), ('n_visited_items', 64443.0), ('inference_total_s', 32.858), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:56:03 INFO  [Epoch 48] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 13:57:38 INFO  [Epoch 49] Train Loss: 5.192373277461348
+Mon 15 Jun 2026 13:58:11 INFO  [Epoch 49] Val Results: OrderedDict([('ndcg@5', 0.034411415457725525), ('ndcg@10', 0.042123571038246155), ('recall@5', 0.05069228634238243), ('recall@10', 0.07470302283763885), ('n_visited_items', 64443.0), ('inference_total_s', 32.96), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 13:59:46 INFO  [Epoch 50] Train Loss: 5.189751367679763
+Mon 15 Jun 2026 14:00:19 INFO  [Epoch 50] Val Results: OrderedDict([('ndcg@5', 0.03394872322678566), ('ndcg@10', 0.04160638526082039), ('recall@5', 0.049881741404533386), ('recall@10', 0.07365329563617706), ('n_visited_items', 64443.0), ('inference_total_s', 33.113), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:01:54 INFO  [Epoch 51] Train Loss: 5.187151089004367
+Mon 15 Jun 2026 14:02:27 INFO  [Epoch 51] Val Results: OrderedDict([('ndcg@5', 0.03475474566221237), ('ndcg@10', 0.04266791790723801), ('recall@5', 0.05127694085240364), ('recall@10', 0.07588562369346619), ('n_visited_items', 64443.0), ('inference_total_s', 33.107), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:04:02 INFO  [Epoch 52] Train Loss: 5.185031732775677
+Mon 15 Jun 2026 14:04:35 INFO  [Epoch 52] Val Results: OrderedDict([('ndcg@5', 0.0348915159702301), ('ndcg@10', 0.04274241626262665), ('recall@5', 0.05142310634255409), ('recall@10', 0.07576603442430496), ('n_visited_items', 64443.0), ('inference_total_s', 32.767), ('inference_ms_per_sample', 0.435), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:04:35 INFO  [Epoch 52] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 14:06:10 INFO  [Epoch 53] Train Loss: 5.182786259297498
+Mon 15 Jun 2026 14:06:43 INFO  [Epoch 53] Val Results: OrderedDict([('ndcg@5', 0.03475048393011093), ('ndcg@10', 0.04259883239865303), ('recall@5', 0.05109091475605965), ('recall@10', 0.07554014027118683), ('n_visited_items', 64443.0), ('inference_total_s', 33.167), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:08:18 INFO  [Epoch 54] Train Loss: 5.180521040755367
+Mon 15 Jun 2026 14:08:51 INFO  [Epoch 54] Val Results: OrderedDict([('ndcg@5', 0.03497261554002762), ('ndcg@10', 0.04265647381544113), ('recall@5', 0.051117490977048874), ('recall@10', 0.07498206198215485), ('n_visited_items', 64443.0), ('inference_total_s', 33.087), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:10:26 INFO  [Epoch 55] Train Loss: 5.17810491752795
+Mon 15 Jun 2026 14:10:59 INFO  [Epoch 55] Val Results: OrderedDict([('ndcg@5', 0.03527170047163963), ('ndcg@10', 0.04343220219016075), ('recall@5', 0.05148954316973686), ('recall@10', 0.07684233039617538), ('n_visited_items', 64443.0), ('inference_total_s', 32.919), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:10:59 INFO  [Epoch 55] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 14:12:34 INFO  [Epoch 56] Train Loss: 5.175879039968946
+Mon 15 Jun 2026 14:13:07 INFO  [Epoch 56] Val Results: OrderedDict([('ndcg@5', 0.03568923473358154), ('ndcg@10', 0.043560415506362915), ('recall@5', 0.0524861142039299), ('recall@10', 0.07698849588632584), ('n_visited_items', 64443.0), ('inference_total_s', 32.903), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:13:07 INFO  [Epoch 56] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 14:14:42 INFO  [Epoch 57] Train Loss: 5.1741338210834575
+Mon 15 Jun 2026 14:15:15 INFO  [Epoch 57] Val Results: OrderedDict([('ndcg@5', 0.035734932869672775), ('ndcg@10', 0.04385092854499817), ('recall@5', 0.05218049883842468), ('recall@10', 0.0774269849061966), ('n_visited_items', 64443.0), ('inference_total_s', 32.93), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:15:15 INFO  [Epoch 57] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 14:16:50 INFO  [Epoch 58] Train Loss: 5.1711154640306844
+Mon 15 Jun 2026 14:17:24 INFO  [Epoch 58] Val Results: OrderedDict([('ndcg@5', 0.03548724204301834), ('ndcg@10', 0.04361046105623245), ('recall@5', 0.0520077608525753), ('recall@10', 0.07728081941604614), ('n_visited_items', 64443.0), ('inference_total_s', 33.085), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:18:59 INFO  [Epoch 59] Train Loss: 5.169542342451026
+Mon 15 Jun 2026 14:19:32 INFO  [Epoch 59] Val Results: OrderedDict([('ndcg@5', 0.03567274659872055), ('ndcg@10', 0.04343625530600548), ('recall@5', 0.05220707505941391), ('recall@10', 0.0763772651553154), ('n_visited_items', 64443.0), ('inference_total_s', 32.907), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:21:07 INFO  [Epoch 60] Train Loss: 5.166783939630885
+Mon 15 Jun 2026 14:21:40 INFO  [Epoch 60] Val Results: OrderedDict([('ndcg@5', 0.03563738614320755), ('ndcg@10', 0.043556202203035355), ('recall@5', 0.05230008810758591), ('recall@10', 0.07689548283815384), ('n_visited_items', 64443.0), ('inference_total_s', 32.827), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:23:15 INFO  [Epoch 61] Train Loss: 5.164409381774411
+Mon 15 Jun 2026 14:23:48 INFO  [Epoch 61] Val Results: OrderedDict([('ndcg@5', 0.03551382198929787), ('ndcg@10', 0.043347496539354324), ('recall@5', 0.051981184631586075), ('recall@10', 0.07631082087755203), ('n_visited_items', 64443.0), ('inference_total_s', 33.015), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:25:23 INFO  [Epoch 62] Train Loss: 5.162611573588326
+Mon 15 Jun 2026 14:25:56 INFO  [Epoch 62] Val Results: OrderedDict([('ndcg@5', 0.03642144799232483), ('ndcg@10', 0.044160373508930206), ('recall@5', 0.05361556261777878), ('recall@10', 0.07763958722352982), ('n_visited_items', 64443.0), ('inference_total_s', 33.076), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:25:56 INFO  [Epoch 62] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 14:27:31 INFO  [Epoch 63] Train Loss: 5.160735090680161
+Mon 15 Jun 2026 14:28:04 INFO  [Epoch 63] Val Results: OrderedDict([('ndcg@5', 0.0359809584915638), ('ndcg@10', 0.043654315173625946), ('recall@5', 0.05283159390091896), ('recall@10', 0.07665630429983139), ('n_visited_items', 64443.0), ('inference_total_s', 32.893), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:29:39 INFO  [Epoch 64] Train Loss: 5.1588454485152635
+Mon 15 Jun 2026 14:30:12 INFO  [Epoch 64] Val Results: OrderedDict([('ndcg@5', 0.035778291523456573), ('ndcg@10', 0.043514978140592575), ('recall@5', 0.05251269042491913), ('recall@10', 0.07658986747264862), ('n_visited_items', 64443.0), ('inference_total_s', 32.936), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:31:47 INFO  [Epoch 65] Train Loss: 5.156492394778854
+Mon 15 Jun 2026 14:32:20 INFO  [Epoch 65] Val Results: OrderedDict([('ndcg@5', 0.03615564480423927), ('ndcg@10', 0.04405941441655159), ('recall@5', 0.0529644675552845), ('recall@10', 0.07749342173337936), ('n_visited_items', 64443.0), ('inference_total_s', 32.966), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:33:57 INFO  [Epoch 66] Train Loss: 5.154129460414038
+Mon 15 Jun 2026 14:34:30 INFO  [Epoch 66] Val Results: OrderedDict([('ndcg@5', 0.03596242517232895), ('ndcg@10', 0.043914955109357834), ('recall@5', 0.053230222314596176), ('recall@10', 0.07794520258903503), ('n_visited_items', 64443.0), ('inference_total_s', 32.994), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:36:06 INFO  [Epoch 67] Train Loss: 5.153174933841763
+Mon 15 Jun 2026 14:36:39 INFO  [Epoch 67] Val Results: OrderedDict([('ndcg@5', 0.03637188673019409), ('ndcg@10', 0.044253211468458176), ('recall@5', 0.05338967218995094), ('recall@10', 0.07790534198284149), ('n_visited_items', 64443.0), ('inference_total_s', 32.777), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:36:39 INFO  [Epoch 67] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 14:38:14 INFO  [Epoch 68] Train Loss: 5.15085183434235
+Mon 15 Jun 2026 14:38:47 INFO  [Epoch 68] Val Results: OrderedDict([('ndcg@5', 0.03607324883341789), ('ndcg@10', 0.04408657178282738), ('recall@5', 0.0529644675552845), ('recall@10', 0.07789205014705658), ('n_visited_items', 64443.0), ('inference_total_s', 33.085), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:40:22 INFO  [Epoch 69] Train Loss: 5.148946382404971
+Mon 15 Jun 2026 14:40:55 INFO  [Epoch 69] Val Results: OrderedDict([('ndcg@5', 0.03651069104671478), ('ndcg@10', 0.04446132853627205), ('recall@5', 0.053495973348617554), ('recall@10', 0.07823752611875534), ('n_visited_items', 64443.0), ('inference_total_s', 33.132), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:40:55 INFO  [Epoch 69] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 14:42:30 INFO  [Epoch 70] Train Loss: 5.146731772094672
+Mon 15 Jun 2026 14:43:03 INFO  [Epoch 70] Val Results: OrderedDict([('ndcg@5', 0.03643525391817093), ('ndcg@10', 0.04436134174466133), ('recall@5', 0.05340296030044556), ('recall@10', 0.07809136807918549), ('n_visited_items', 64443.0), ('inference_total_s', 32.955), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:44:38 INFO  [Epoch 71] Train Loss: 5.1453848123763475
+Mon 15 Jun 2026 14:45:11 INFO  [Epoch 71] Val Results: OrderedDict([('ndcg@5', 0.036815475672483444), ('ndcg@10', 0.0448358915746212), ('recall@5', 0.05358898639678955), ('recall@10', 0.07855643332004547), ('n_visited_items', 64443.0), ('inference_total_s', 32.873), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:45:11 INFO  [Epoch 71] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 14:46:46 INFO  [Epoch 72] Train Loss: 5.142996154798793
+Mon 15 Jun 2026 14:47:19 INFO  [Epoch 72] Val Results: OrderedDict([('ndcg@5', 0.03676353394985199), ('ndcg@10', 0.044751401990652084), ('recall@5', 0.053828164935112), ('recall@10', 0.07863616198301315), ('n_visited_items', 64443.0), ('inference_total_s', 33.262), ('inference_ms_per_sample', 0.442), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:48:54 INFO  [Epoch 73] Train Loss: 5.141287860324917
+Mon 15 Jun 2026 14:49:27 INFO  [Epoch 73] Val Results: OrderedDict([('ndcg@5', 0.03672581911087036), ('ndcg@10', 0.044550396502017975), ('recall@5', 0.05389460176229477), ('recall@10', 0.0781976655125618), ('n_visited_items', 64443.0), ('inference_total_s', 32.927), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:51:02 INFO  [Epoch 74] Train Loss: 5.139791172886662
+Mon 15 Jun 2026 14:51:35 INFO  [Epoch 74] Val Results: OrderedDict([('ndcg@5', 0.036582108587026596), ('ndcg@10', 0.04441434144973755), ('recall@5', 0.053642138838768005), ('recall@10', 0.0780116394162178), ('n_visited_items', 64443.0), ('inference_total_s', 32.993), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:53:10 INFO  [Epoch 75] Train Loss: 5.1379363304595
+Mon 15 Jun 2026 14:53:43 INFO  [Epoch 75] Val Results: OrderedDict([('ndcg@5', 0.036842796951532364), ('ndcg@10', 0.044627197086811066), ('recall@5', 0.053881313651800156), ('recall@10', 0.0781046524643898), ('n_visited_items', 64443.0), ('inference_total_s', 32.737), ('inference_ms_per_sample', 0.435), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:55:18 INFO  [Epoch 76] Train Loss: 5.136383055362241
+Mon 15 Jun 2026 14:55:51 INFO  [Epoch 76] Val Results: OrderedDict([('ndcg@5', 0.03650687262415886), ('ndcg@10', 0.04421691223978996), ('recall@5', 0.053602274507284164), ('recall@10', 0.07758643478155136), ('n_visited_items', 64443.0), ('inference_total_s', 33.099), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:57:26 INFO  [Epoch 77] Train Loss: 5.134307099837507
+Mon 15 Jun 2026 14:57:59 INFO  [Epoch 77] Val Results: OrderedDict([('ndcg@5', 0.03703857213258743), ('ndcg@10', 0.04480872303247452), ('recall@5', 0.05437295883893967), ('recall@10', 0.07851657271385193), ('n_visited_items', 64443.0), ('inference_total_s', 33.069), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 14:59:34 INFO  [Epoch 78] Train Loss: 5.132401595912521
+Mon 15 Jun 2026 15:00:07 INFO  [Epoch 78] Val Results: OrderedDict([('ndcg@5', 0.036577049642801285), ('ndcg@10', 0.04451509192585945), ('recall@5', 0.05362885072827339), ('recall@10', 0.07838369160890579), ('n_visited_items', 64443.0), ('inference_total_s', 33.067), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:01:42 INFO  [Epoch 79] Train Loss: 5.131172595650517
+Mon 15 Jun 2026 15:02:15 INFO  [Epoch 79] Val Results: OrderedDict([('ndcg@5', 0.036734435707330704), ('ndcg@10', 0.04456563666462898), ('recall@5', 0.053708575665950775), ('recall@10', 0.07803821563720703), ('n_visited_items', 64443.0), ('inference_total_s', 32.77), ('inference_ms_per_sample', 0.435), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:03:50 INFO  [Epoch 80] Train Loss: 5.1293130082888085
+Mon 15 Jun 2026 15:04:23 INFO  [Epoch 80] Val Results: OrderedDict([('ndcg@5', 0.037018757313489914), ('ndcg@10', 0.04489170387387276), ('recall@5', 0.054505832493305206), ('recall@10', 0.07898163795471191), ('n_visited_items', 64443.0), ('inference_total_s', 33.113), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:04:23 INFO  [Epoch 80] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 15:05:58 INFO  [Epoch 81] Train Loss: 5.1273514894207635
+Mon 15 Jun 2026 15:06:31 INFO  [Epoch 81] Val Results: OrderedDict([('ndcg@5', 0.03720490634441376), ('ndcg@10', 0.045073263347148895), ('recall@5', 0.054505832493305206), ('recall@10', 0.07892848551273346), ('n_visited_items', 64443.0), ('inference_total_s', 33.157), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:06:31 INFO  [Epoch 81] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 15:08:06 INFO  [Epoch 82] Train Loss: 5.1260222476758095
+Mon 15 Jun 2026 15:08:39 INFO  [Epoch 82] Val Results: OrderedDict([('ndcg@5', 0.036967091262340546), ('ndcg@10', 0.04473999887704849), ('recall@5', 0.05445268377661705), ('recall@10', 0.07866273075342178), ('n_visited_items', 64443.0), ('inference_total_s', 32.787), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:10:14 INFO  [Epoch 83] Train Loss: 5.125079441752361
+Mon 15 Jun 2026 15:10:47 INFO  [Epoch 83] Val Results: OrderedDict([('ndcg@5', 0.0373767651617527), ('ndcg@10', 0.04520063474774361), ('recall@5', 0.05493103712797165), ('recall@10', 0.07920752465724945), ('n_visited_items', 64443.0), ('inference_total_s', 32.916), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:10:47 INFO  [Epoch 83] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 15:12:22 INFO  [Epoch 84] Train Loss: 5.122997496573386
+Mon 15 Jun 2026 15:12:55 INFO  [Epoch 84] Val Results: OrderedDict([('ndcg@5', 0.0371045358479023), ('ndcg@10', 0.04496978968381882), ('recall@5', 0.0545988455414772), ('recall@10', 0.07902149856090546), ('n_visited_items', 64443.0), ('inference_total_s', 33.025), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:14:30 INFO  [Epoch 85] Train Loss: 5.121733998272225
+Mon 15 Jun 2026 15:15:03 INFO  [Epoch 85] Val Results: OrderedDict([('ndcg@5', 0.03682452812790871), ('ndcg@10', 0.044667936861515045), ('recall@5', 0.053947754204273224), ('recall@10', 0.07831725478172302), ('n_visited_items', 64443.0), ('inference_total_s', 33.066), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:16:39 INFO  [Epoch 86] Train Loss: 5.119808268184849
+Mon 15 Jun 2026 15:17:11 INFO  [Epoch 86] Val Results: OrderedDict([('ndcg@5', 0.036849431693553925), ('ndcg@10', 0.04452608898282051), ('recall@5', 0.05438624322414398), ('recall@10', 0.07817108929157257), ('n_visited_items', 64443.0), ('inference_total_s', 32.942), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:18:47 INFO  [Epoch 87] Train Loss: 5.118398668938603
+Mon 15 Jun 2026 15:19:19 INFO  [Epoch 87] Val Results: OrderedDict([('ndcg@5', 0.03750103712081909), ('ndcg@10', 0.04554004967212677), ('recall@5', 0.05530308932065964), ('recall@10', 0.08029711246490479), ('n_visited_items', 64443.0), ('inference_total_s', 32.782), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:19:19 INFO  [Epoch 87] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 15:20:54 INFO  [Epoch 88] Train Loss: 5.1173134800362945
+Mon 15 Jun 2026 15:21:28 INFO  [Epoch 88] Val Results: OrderedDict([('ndcg@5', 0.03711121901869774), ('ndcg@10', 0.04482422396540642), ('recall@5', 0.05497090145945549), ('recall@10', 0.07892848551273346), ('n_visited_items', 64443.0), ('inference_total_s', 33.048), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:23:03 INFO  [Epoch 89] Train Loss: 5.115861758896024
+Mon 15 Jun 2026 15:23:36 INFO  [Epoch 89] Val Results: OrderedDict([('ndcg@5', 0.037302836775779724), ('ndcg@10', 0.045098677277565), ('recall@5', 0.05506391450762749), ('recall@10', 0.07932711392641068), ('n_visited_items', 64443.0), ('inference_total_s', 33.12), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:25:11 INFO  [Epoch 90] Train Loss: 5.114546693149052
+Mon 15 Jun 2026 15:25:44 INFO  [Epoch 90] Val Results: OrderedDict([('ndcg@5', 0.03712841495871544), ('ndcg@10', 0.04502221941947937), ('recall@5', 0.05473172292113304), ('recall@10', 0.07922081649303436), ('n_visited_items', 64443.0), ('inference_total_s', 32.775), ('inference_ms_per_sample', 0.435), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:27:19 INFO  [Epoch 91] Train Loss: 5.113048713264772
+Mon 15 Jun 2026 15:27:52 INFO  [Epoch 91] Val Results: OrderedDict([('ndcg@5', 0.03736701235175133), ('ndcg@10', 0.04518460854887962), ('recall@5', 0.05493103712797165), ('recall@10', 0.07920752465724945), ('n_visited_items', 64443.0), ('inference_total_s', 32.971), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:29:27 INFO  [Epoch 92] Train Loss: 5.111950440104248
+Mon 15 Jun 2026 15:30:00 INFO  [Epoch 92] Val Results: OrderedDict([('ndcg@5', 0.037401795387268066), ('ndcg@10', 0.04522287845611572), ('recall@5', 0.055156927555799484), ('recall@10', 0.07939355075359344), ('n_visited_items', 64443.0), ('inference_total_s', 32.991), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:31:35 INFO  [Epoch 93] Train Loss: 5.109645843931987
+Mon 15 Jun 2026 15:32:08 INFO  [Epoch 93] Val Results: OrderedDict([('ndcg@5', 0.03743763640522957), ('ndcg@10', 0.04531550779938698), ('recall@5', 0.05483802407979965), ('recall@10', 0.07932711392641068), ('n_visited_items', 64443.0), ('inference_total_s', 33.089), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:33:43 INFO  [Epoch 94] Train Loss: 5.109005363420038
+Mon 15 Jun 2026 15:34:16 INFO  [Epoch 94] Val Results: OrderedDict([('ndcg@5', 0.037210896611213684), ('ndcg@10', 0.04496075212955475), ('recall@5', 0.05438624322414398), ('recall@10', 0.07842355966567993), ('n_visited_items', 64443.0), ('inference_total_s', 32.815), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:35:51 INFO  [Epoch 95] Train Loss: 5.1082041721667855
+Mon 15 Jun 2026 15:36:24 INFO  [Epoch 95] Val Results: OrderedDict([('ndcg@5', 0.03723675757646561), ('ndcg@10', 0.04508010670542717), ('recall@5', 0.054851312190294266), ('recall@10', 0.07922081649303436), ('n_visited_items', 64443.0), ('inference_total_s', 33.12), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:38:00 INFO  [Epoch 96] Train Loss: 5.106282310468795
+Mon 15 Jun 2026 15:38:33 INFO  [Epoch 96] Val Results: OrderedDict([('ndcg@5', 0.03743893280625343), ('ndcg@10', 0.045328665524721146), ('recall@5', 0.05501076206564903), ('recall@10', 0.07948656380176544), ('n_visited_items', 64443.0), ('inference_total_s', 33.042), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:40:08 INFO  [Epoch 97] Train Loss: 5.104785416784619
+Mon 15 Jun 2026 15:40:41 INFO  [Epoch 97] Val Results: OrderedDict([('ndcg@5', 0.03732858598232269), ('ndcg@10', 0.04532107338309288), ('recall@5', 0.05487788841128349), ('recall@10', 0.07969916611909866), ('n_visited_items', 64443.0), ('inference_total_s', 33.204), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:42:17 INFO  [Epoch 98] Train Loss: 5.104444757330301
+Mon 15 Jun 2026 15:42:50 INFO  [Epoch 98] Val Results: OrderedDict([('ndcg@5', 0.03750043362379074), ('ndcg@10', 0.04534245282411575), ('recall@5', 0.05501076206564903), ('recall@10', 0.07932711392641068), ('n_visited_items', 64443.0), ('inference_total_s', 32.927), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:44:25 INFO  [Epoch 99] Train Loss: 5.1032786237224075
+Mon 15 Jun 2026 15:44:58 INFO  [Epoch 99] Val Results: OrderedDict([('ndcg@5', 0.037462975829839706), ('ndcg@10', 0.045385535806417465), ('recall@5', 0.05494432523846626), ('recall@10', 0.07956629246473312), ('n_visited_items', 64443.0), ('inference_total_s', 33.073), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:46:33 INFO  [Epoch 100] Train Loss: 5.102074473963134
+Mon 15 Jun 2026 15:47:06 INFO  [Epoch 100] Val Results: OrderedDict([('ndcg@5', 0.03746650740504265), ('ndcg@10', 0.045456625521183014), ('recall@5', 0.0550772026181221), ('recall@10', 0.0799250602722168), ('n_visited_items', 64443.0), ('inference_total_s', 33.029), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:48:43 INFO  [Epoch 101] Train Loss: 5.100099066307334
+Mon 15 Jun 2026 15:49:16 INFO  [Epoch 101] Val Results: OrderedDict([('ndcg@5', 0.03756095841526985), ('ndcg@10', 0.04520655795931816), ('recall@5', 0.05551569163799286), ('recall@10', 0.07930053770542145), ('n_visited_items', 64443.0), ('inference_total_s', 33.068), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:50:51 INFO  [Epoch 102] Train Loss: 5.0994732416134205
+Mon 15 Jun 2026 15:51:24 INFO  [Epoch 102] Val Results: OrderedDict([('ndcg@5', 0.03765139356255531), ('ndcg@10', 0.04560903459787369), ('recall@5', 0.055329665541648865), ('recall@10', 0.0800180733203888), ('n_visited_items', 64443.0), ('inference_total_s', 32.905), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:51:24 INFO  [Epoch 102] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 15:53:00 INFO  [Epoch 103] Train Loss: 5.098453002278564
+Mon 15 Jun 2026 15:53:33 INFO  [Epoch 103] Val Results: OrderedDict([('ndcg@5', 0.03784995898604393), ('ndcg@10', 0.04574205353856087), ('recall@5', 0.05559541657567024), ('recall@10', 0.08019080758094788), ('n_visited_items', 64443.0), ('inference_total_s', 33.119), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:53:33 INFO  [Epoch 103] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 15:55:09 INFO  [Epoch 104] Train Loss: 5.097303119911691
+Mon 15 Jun 2026 15:55:42 INFO  [Epoch 104] Val Results: OrderedDict([('ndcg@5', 0.03785179927945137), ('ndcg@10', 0.04572673514485359), ('recall@5', 0.05551569163799286), ('recall@10', 0.08003135770559311), ('n_visited_items', 64443.0), ('inference_total_s', 33.005), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:57:19 INFO  [Epoch 105] Train Loss: 5.096308317431602
+Mon 15 Jun 2026 15:57:52 INFO  [Epoch 105] Val Results: OrderedDict([('ndcg@5', 0.037487760186195374), ('ndcg@10', 0.04527314007282257), ('recall@5', 0.05519678816199303), ('recall@10', 0.07938026636838913), ('n_visited_items', 64443.0), ('inference_total_s', 32.889), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 15:59:28 INFO  [Epoch 106] Train Loss: 5.0954631859964294
+Mon 15 Jun 2026 16:00:01 INFO  [Epoch 106] Val Results: OrderedDict([('ndcg@5', 0.037925057113170624), ('ndcg@10', 0.045785415917634964), ('recall@5', 0.05568843334913254), ('recall@10', 0.08016423135995865), ('n_visited_items', 64443.0), ('inference_total_s', 32.806), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:00:01 INFO  [Epoch 106] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 16:01:38 INFO  [Epoch 107] Train Loss: 5.094151259960076
+Mon 15 Jun 2026 16:02:11 INFO  [Epoch 107] Val Results: OrderedDict([('ndcg@5', 0.03792818263173103), ('ndcg@10', 0.0457523874938488), ('recall@5', 0.0556485690176487), ('recall@10', 0.08000478148460388), ('n_visited_items', 64443.0), ('inference_total_s', 33.072), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:03:47 INFO  [Epoch 108] Train Loss: 5.093099192703697
+Mon 15 Jun 2026 16:04:20 INFO  [Epoch 108] Val Results: OrderedDict([('ndcg@5', 0.03774021938443184), ('ndcg@10', 0.04544895887374878), ('recall@5', 0.05535624176263809), ('recall@10', 0.0793536901473999), ('n_visited_items', 64443.0), ('inference_total_s', 33.148), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:05:57 INFO  [Epoch 109] Train Loss: 5.092228922277183
+Mon 15 Jun 2026 16:06:30 INFO  [Epoch 109] Val Results: OrderedDict([('ndcg@5', 0.03769899904727936), ('ndcg@10', 0.04560710862278938), ('recall@5', 0.05534295365214348), ('recall@10', 0.07997820526361465), ('n_visited_items', 64443.0), ('inference_total_s', 32.953), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:08:06 INFO  [Epoch 110] Train Loss: 5.090990855717254
+Mon 15 Jun 2026 16:08:39 INFO  [Epoch 110] Val Results: OrderedDict([('ndcg@5', 0.03780866041779518), ('ndcg@10', 0.04583950713276863), ('recall@5', 0.0556485690176487), ('recall@10', 0.080695740878582), ('n_visited_items', 64443.0), ('inference_total_s', 32.957), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:08:39 INFO  [Epoch 110] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 16:10:16 INFO  [Epoch 111] Train Loss: 5.090460718903188
+Mon 15 Jun 2026 16:10:49 INFO  [Epoch 111] Val Results: OrderedDict([('ndcg@5', 0.03796570003032684), ('ndcg@10', 0.04573943838477135), ('recall@5', 0.05583459511399269), ('recall@10', 0.08004464954137802), ('n_visited_items', 64443.0), ('inference_total_s', 33.093), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:12:25 INFO  [Epoch 112] Train Loss: 5.089213331220829
+Mon 15 Jun 2026 16:12:58 INFO  [Epoch 112] Val Results: OrderedDict([('ndcg@5', 0.037776462733745575), ('ndcg@10', 0.04562894254922867), ('recall@5', 0.055396102368831635), ('recall@10', 0.07981875538825989), ('n_visited_items', 64443.0), ('inference_total_s', 33.052), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:14:33 INFO  [Epoch 113] Train Loss: 5.088924983231696
+Mon 15 Jun 2026 16:15:06 INFO  [Epoch 113] Val Results: OrderedDict([('ndcg@5', 0.03767184913158417), ('ndcg@10', 0.04569736868143082), ('recall@5', 0.05538281798362732), ('recall@10', 0.0803103968501091), ('n_visited_items', 64443.0), ('inference_total_s', 32.89), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:16:41 INFO  [Epoch 114] Train Loss: 5.088006993720742
+Mon 15 Jun 2026 16:17:14 INFO  [Epoch 114] Val Results: OrderedDict([('ndcg@5', 0.03785032406449318), ('ndcg@10', 0.045756567269563675), ('recall@5', 0.05551569163799286), ('recall@10', 0.08015094697475433), ('n_visited_items', 64443.0), ('inference_total_s', 32.817), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:18:49 INFO  [Epoch 115] Train Loss: 5.086965377251946
+Mon 15 Jun 2026 16:19:22 INFO  [Epoch 115] Val Results: OrderedDict([('ndcg@5', 0.037923600524663925), ('ndcg@10', 0.04572663456201553), ('recall@5', 0.055741582065820694), ('recall@10', 0.08000478148460388), ('n_visited_items', 64443.0), ('inference_total_s', 33.132), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:20:57 INFO  [Epoch 116] Train Loss: 5.085504153884874
+Mon 15 Jun 2026 16:21:30 INFO  [Epoch 116] Val Results: OrderedDict([('ndcg@5', 0.03766293451189995), ('ndcg@10', 0.04546017572283745), ('recall@5', 0.05528980493545532), ('recall@10', 0.07956629246473312), ('n_visited_items', 64443.0), ('inference_total_s', 33.18), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:23:06 INFO  [Epoch 117] Train Loss: 5.0856718062502235
+Mon 15 Jun 2026 16:23:39 INFO  [Epoch 117] Val Results: OrderedDict([('ndcg@5', 0.037839215248823166), ('ndcg@10', 0.045757077634334564), ('recall@5', 0.055502403527498245), ('recall@10', 0.08015094697475433), ('n_visited_items', 64443.0), ('inference_total_s', 32.913), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:25:15 INFO  [Epoch 118] Train Loss: 5.084713663982429
+Mon 15 Jun 2026 16:25:47 INFO  [Epoch 118] Val Results: OrderedDict([('ndcg@5', 0.03786671906709671), ('ndcg@10', 0.04575691372156143), ('recall@5', 0.05542267858982086), ('recall@10', 0.07995163649320602), ('n_visited_items', 64443.0), ('inference_total_s', 32.795), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:27:22 INFO  [Epoch 119] Train Loss: 5.084529707536195
+Mon 15 Jun 2026 16:27:55 INFO  [Epoch 119] Val Results: OrderedDict([('ndcg@5', 0.03791865333914757), ('ndcg@10', 0.04582367464900017), ('recall@5', 0.05572829395532608), ('recall@10', 0.08033697307109833), ('n_visited_items', 64443.0), ('inference_total_s', 33.018), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:29:30 INFO  [Epoch 120] Train Loss: 5.083322535251485
+Mon 15 Jun 2026 16:30:04 INFO  [Epoch 120] Val Results: OrderedDict([('ndcg@5', 0.038059134036302567), ('ndcg@10', 0.0458865649998188), ('recall@5', 0.055914320051670074), ('recall@10', 0.08027053624391556), ('n_visited_items', 64443.0), ('inference_total_s', 33.078), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:30:04 INFO  [Epoch 120] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 16:31:39 INFO  [Epoch 121] Train Loss: 5.082640267782066
+Mon 15 Jun 2026 16:32:12 INFO  [Epoch 121] Val Results: OrderedDict([('ndcg@5', 0.037986870855093), ('ndcg@10', 0.04581484571099281), ('recall@5', 0.055781446397304535), ('recall@10', 0.08017752319574356), ('n_visited_items', 64443.0), ('inference_total_s', 32.873), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:33:47 INFO  [Epoch 122] Train Loss: 5.082246114783675
+Mon 15 Jun 2026 16:34:20 INFO  [Epoch 122] Val Results: OrderedDict([('ndcg@5', 0.03819794952869415), ('ndcg@10', 0.04602446407079697), ('recall@5', 0.05610034987330437), ('recall@10', 0.0804964229464531), ('n_visited_items', 64443.0), ('inference_total_s', 33.029), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:34:20 INFO  [Epoch 122] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 16:35:55 INFO  [Epoch 123] Train Loss: 5.081817338464513
+Mon 15 Jun 2026 16:36:28 INFO  [Epoch 123] Val Results: OrderedDict([('ndcg@5', 0.037994634360075), ('ndcg@10', 0.045810945332050323), ('recall@5', 0.055954184383153915), ('recall@10', 0.08029711246490479), ('n_visited_items', 64443.0), ('inference_total_s', 33.039), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:38:03 INFO  [Epoch 124] Train Loss: 5.081249308223912
+Mon 15 Jun 2026 16:38:36 INFO  [Epoch 124] Val Results: OrderedDict([('ndcg@5', 0.03798387199640274), ('ndcg@10', 0.04584040865302086), ('recall@5', 0.05583459511399269), ('recall@10', 0.08029711246490479), ('n_visited_items', 64443.0), ('inference_total_s', 33.12), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:40:11 INFO  [Epoch 125] Train Loss: 5.080912606645845
+Mon 15 Jun 2026 16:40:43 INFO  [Epoch 125] Val Results: OrderedDict([('ndcg@5', 0.037983596324920654), ('ndcg@10', 0.045910000801086426), ('recall@5', 0.05570171773433685), ('recall@10', 0.08037683367729187), ('n_visited_items', 64443.0), ('inference_total_s', 32.829), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:42:18 INFO  [Epoch 126] Train Loss: 5.07968063243699
+Mon 15 Jun 2026 16:42:52 INFO  [Epoch 126] Val Results: OrderedDict([('ndcg@5', 0.03798395022749901), ('ndcg@10', 0.04580380395054817), ('recall@5', 0.05572829395532608), ('recall@10', 0.08008451014757156), ('n_visited_items', 64443.0), ('inference_total_s', 33.237), ('inference_ms_per_sample', 0.442), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:44:27 INFO  [Epoch 127] Train Loss: 5.079557112437258
+Mon 15 Jun 2026 16:45:00 INFO  [Epoch 127] Val Results: OrderedDict([('ndcg@5', 0.037988562136888504), ('ndcg@10', 0.045907605439424515), ('recall@5', 0.05570171773433685), ('recall@10', 0.08036354929208755), ('n_visited_items', 64443.0), ('inference_total_s', 33.093), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:46:35 INFO  [Epoch 128] Train Loss: 5.0789578606551835
+Mon 15 Jun 2026 16:47:08 INFO  [Epoch 128] Val Results: OrderedDict([('ndcg@5', 0.03805285319685936), ('ndcg@10', 0.04593886435031891), ('recall@5', 0.05592760816216469), ('recall@10', 0.08045656234025955), ('n_visited_items', 64443.0), ('inference_total_s', 32.859), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:48:43 INFO  [Epoch 129] Train Loss: 5.079051088072339
+Mon 15 Jun 2026 16:49:16 INFO  [Epoch 129] Val Results: OrderedDict([('ndcg@5', 0.038005828857421875), ('ndcg@10', 0.045904505997896194), ('recall@5', 0.05583459511399269), ('recall@10', 0.08042998611927032), ('n_visited_items', 64443.0), ('inference_total_s', 32.887), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:50:51 INFO  [Epoch 130] Train Loss: 5.078699283241906
+Mon 15 Jun 2026 16:51:24 INFO  [Epoch 130] Val Results: OrderedDict([('ndcg@5', 0.03794572874903679), ('ndcg@10', 0.0457700751721859), ('recall@5', 0.05562199279665947), ('recall@10', 0.07995163649320602), ('n_visited_items', 64443.0), ('inference_total_s', 33.128), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:52:59 INFO  [Epoch 131] Train Loss: 5.077925774537633
+Mon 15 Jun 2026 16:53:32 INFO  [Epoch 131] Val Results: OrderedDict([('ndcg@5', 0.03795884922146797), ('ndcg@10', 0.045814644545316696), ('recall@5', 0.05570171773433685), ('recall@10', 0.08017752319574356), ('n_visited_items', 64443.0), ('inference_total_s', 33.205), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:55:07 INFO  [Epoch 132] Train Loss: 5.077611941115147
+Mon 15 Jun 2026 16:55:40 INFO  [Epoch 132] Val Results: OrderedDict([('ndcg@5', 0.03804471716284752), ('ndcg@10', 0.04592715948820114), ('recall@5', 0.055847883224487305), ('recall@10', 0.0804034098982811), ('n_visited_items', 64443.0), ('inference_total_s', 32.871), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:57:15 INFO  [Epoch 133] Train Loss: 5.076645815340507
+Mon 15 Jun 2026 16:57:48 INFO  [Epoch 133] Val Results: OrderedDict([('ndcg@5', 0.03809667378664017), ('ndcg@10', 0.04590228199958801), ('recall@5', 0.056020621210336685), ('recall@10', 0.08033697307109833), ('n_visited_items', 64443.0), ('inference_total_s', 32.837), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 16:59:23 INFO  [Epoch 134] Train Loss: 5.0771711999758535
+Mon 15 Jun 2026 16:59:56 INFO  [Epoch 134] Val Results: OrderedDict([('ndcg@5', 0.03793223947286606), ('ndcg@10', 0.045804981142282486), ('recall@5', 0.05563528090715408), ('recall@10', 0.08015094697475433), ('n_visited_items', 64443.0), ('inference_total_s', 33.152), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:01:31 INFO  [Epoch 135] Train Loss: 5.076638658947983
+Mon 15 Jun 2026 17:02:05 INFO  [Epoch 135] Val Results: OrderedDict([('ndcg@5', 0.038020290434360504), ('ndcg@10', 0.045910097658634186), ('recall@5', 0.055781446397304535), ('recall@10', 0.08039012551307678), ('n_visited_items', 64443.0), ('inference_total_s', 33.179), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:03:40 INFO  [Epoch 136] Train Loss: 5.076272754396467
+Mon 15 Jun 2026 17:04:13 INFO  [Epoch 136] Val Results: OrderedDict([('ndcg@5', 0.038066353648900986), ('ndcg@10', 0.045903436839580536), ('recall@5', 0.055808018893003464), ('recall@10', 0.08020409941673279), ('n_visited_items', 64443.0), ('inference_total_s', 32.894), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:05:48 INFO  [Epoch 137] Train Loss: 5.075807244571007
+Mon 15 Jun 2026 17:06:21 INFO  [Epoch 137] Val Results: OrderedDict([('ndcg@5', 0.038135118782520294), ('ndcg@10', 0.04604734107851982), ('recall@5', 0.05582130700349808), ('recall@10', 0.08046984672546387), ('n_visited_items', 64443.0), ('inference_total_s', 32.821), ('inference_ms_per_sample', 0.436), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:06:21 INFO  [Epoch 137] Saved model checkpoint to ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 17:07:56 INFO  [Epoch 138] Train Loss: 5.075285185864187
+Mon 15 Jun 2026 17:08:30 INFO  [Epoch 138] Val Results: OrderedDict([('ndcg@5', 0.038200557231903076), ('ndcg@10', 0.046038951724767685), ('recall@5', 0.05600733309984207), ('recall@10', 0.08045656234025955), ('n_visited_items', 64443.0), ('inference_total_s', 33.075), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:10:05 INFO  [Epoch 139] Train Loss: 5.0751498680864735
+Mon 15 Jun 2026 17:10:38 INFO  [Epoch 139] Val Results: OrderedDict([('ndcg@5', 0.038184069097042084), ('ndcg@10', 0.04601792246103287), ('recall@5', 0.056020621210336685), ('recall@10', 0.08045656234025955), ('n_visited_items', 64443.0), ('inference_total_s', 33.224), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:12:13 INFO  [Epoch 140] Train Loss: 5.075366521329087
+Mon 15 Jun 2026 17:12:46 INFO  [Epoch 140] Val Results: OrderedDict([('ndcg@5', 0.038069695234298706), ('ndcg@10', 0.045897021889686584), ('recall@5', 0.055808018893003464), ('recall@10', 0.08019080758094788), ('n_visited_items', 64443.0), ('inference_total_s', 32.987), ('inference_ms_per_sample', 0.438), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:14:21 INFO  [Epoch 141] Train Loss: 5.07521512403991
+Mon 15 Jun 2026 17:14:54 INFO  [Epoch 141] Val Results: OrderedDict([('ndcg@5', 0.03813321888446808), ('ndcg@10', 0.04598066210746765), ('recall@5', 0.055847883224487305), ('recall@10', 0.08028382062911987), ('n_visited_items', 64443.0), ('inference_total_s', 32.774), ('inference_ms_per_sample', 0.435), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:16:29 INFO  [Epoch 142] Train Loss: 5.07473868019779
+Mon 15 Jun 2026 17:17:02 INFO  [Epoch 142] Val Results: OrderedDict([('ndcg@5', 0.03802397474646568), ('ndcg@10', 0.04585869237780571), ('recall@5', 0.055808018893003464), ('recall@10', 0.08019080758094788), ('n_visited_items', 64443.0), ('inference_total_s', 33.055), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:18:37 INFO  [Epoch 143] Train Loss: 5.075016123573092
+Mon 15 Jun 2026 17:19:11 INFO  [Epoch 143] Val Results: OrderedDict([('ndcg@5', 0.038063813000917435), ('ndcg@10', 0.04596983268857002), ('recall@5', 0.055781446397304535), ('recall@10', 0.08041670173406601), ('n_visited_items', 64443.0), ('inference_total_s', 33.217), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:20:46 INFO  [Epoch 144] Train Loss: 5.075128187975572
+Mon 15 Jun 2026 17:21:19 INFO  [Epoch 144] Val Results: OrderedDict([('ndcg@5', 0.03808577358722687), ('ndcg@10', 0.04595275968313217), ('recall@5', 0.05583459511399269), ('recall@10', 0.08032368868589401), ('n_visited_items', 64443.0), ('inference_total_s', 32.922), ('inference_ms_per_sample', 0.437), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:22:54 INFO  [Epoch 145] Train Loss: 5.0747862420410215
+Mon 15 Jun 2026 17:23:27 INFO  [Epoch 145] Val Results: OrderedDict([('ndcg@5', 0.03808024898171425), ('ndcg@10', 0.04591039568185806), ('recall@5', 0.055847883224487305), ('recall@10', 0.08023067563772202), ('n_visited_items', 64443.0), ('inference_total_s', 33.164), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:25:04 INFO  [Epoch 146] Train Loss: 5.073886474612784
+Mon 15 Jun 2026 17:25:37 INFO  [Epoch 146] Val Results: OrderedDict([('ndcg@5', 0.03808630257844925), ('ndcg@10', 0.045970618724823), ('recall@5', 0.05586117133498192), ('recall@10', 0.08041670173406601), ('n_visited_items', 64443.0), ('inference_total_s', 33.075), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:27:13 INFO  [Epoch 147] Train Loss: 5.073738027833422
+Mon 15 Jun 2026 17:27:46 INFO  [Epoch 147] Val Results: OrderedDict([('ndcg@5', 0.03807545080780983), ('ndcg@10', 0.04597776010632515), ('recall@5', 0.055808018893003464), ('recall@10', 0.0804034098982811), ('n_visited_items', 64443.0), ('inference_total_s', 33.204), ('inference_ms_per_sample', 0.441), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:29:23 INFO  [Epoch 148] Train Loss: 5.07421540660023
+Mon 15 Jun 2026 17:29:55 INFO  [Epoch 148] Val Results: OrderedDict([('ndcg@5', 0.03808575123548508), ('ndcg@10', 0.04595908895134926), ('recall@5', 0.055847883224487305), ('recall@10', 0.08036354929208755), ('n_visited_items', 64443.0), ('inference_total_s', 32.745), ('inference_ms_per_sample', 0.435), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:31:30 INFO  [Epoch 149] Train Loss: 5.074829647858511
+Mon 15 Jun 2026 17:32:03 INFO  [Epoch 149] Val Results: OrderedDict([('ndcg@5', 0.03808000311255455), ('ndcg@10', 0.045959021896123886), ('recall@5', 0.05583459511399269), ('recall@10', 0.08036354929208755), ('n_visited_items', 64443.0), ('inference_total_s', 33.034), ('inference_ms_per_sample', 0.439), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:33:39 INFO  [Epoch 150] Train Loss: 5.074989161606449
+Mon 15 Jun 2026 17:34:13 INFO  [Epoch 150] Val Results: OrderedDict([('ndcg@5', 0.038085147738456726), ('ndcg@10', 0.04597059637308121), ('recall@5', 0.055847883224487305), ('recall@10', 0.0804034098982811), ('n_visited_items', 64443.0), ('inference_total_s', 33.082), ('inference_ms_per_sample', 0.44), ('cluster_init_s', 0.0)])
+Mon 15 Jun 2026 17:34:13 INFO  Best epoch: 137, Best val score: 0.04604734107851982
+Mon 15 Jun 2026 17:34:13 INFO  Loaded best model checkpoint from ckpt/genrec_default-main.py_--category=CDs_and_Vinyl_--lr=0.001_--temperature=0.03_--n_codebook=64_--n_clusters=500_--n_probe_clusters=20-Jun-15-2026_12-08-84d5e3.pth
+Mon 15 Jun 2026 17:34:13 INFO  Building item profiles...
+Mon 15 Jun 2026 17:34:13 INFO  Running k-means with 500 clusters...
+Mon 15 Jun 2026 17:38:48 INFO  Cluster search ready: 500 clusters, avg 128.9 items/cluster, max 652 items/cluster, init took 275.69s
+Mon 15 Jun 2026 17:39:21 INFO  
+============================================================
+  Training time          : 05h 20m 37s  (19237.2s)
+  Cluster init time      : 275.69s
+  Test inference time    : 308.63s
+  Avg latency / sample   : 4.101ms
+  Avg items visited      : 1726.3
+============================================================
+  Test Results           : {'ndcg@5': 0.018013188615441322, 'ndcg@10': 0.019492104649543762, 'recall@5': 0.024037310853600502, 'recall@10': 0.028581678867340088}
+============================================================

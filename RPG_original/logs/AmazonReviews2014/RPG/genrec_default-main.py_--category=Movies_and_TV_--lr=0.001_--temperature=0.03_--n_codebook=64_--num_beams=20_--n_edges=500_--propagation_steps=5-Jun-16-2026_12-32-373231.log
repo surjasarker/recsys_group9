@@ -1,0 +1,7 @@
+Tue 16 Jun 2026 12:32:37 INFO  Device: cuda
+Tue 16 Jun 2026 12:32:37 INFO  [DATASET] Amazon Reviews 2014 for category: Movies_and_TV
+Tue 16 Jun 2026 12:32:40 INFO  Device: cuda
+Tue 16 Jun 2026 12:32:40 INFO  [DATASET] Amazon Reviews 2014 for category: Movies_and_TV
+Tue 16 Jun 2026 12:33:02 INFO  Downloaded meta_Movies_and_TV.json.gz
+Tue 16 Jun 2026 12:33:02 INFO  [DATASET] Processing reviews...
+Tue 16 Jun 2026 12:33:02 INFO  [DATASET] Loading reviews...

@@ -1,0 +1,9 @@
+Thu 11 Jun 2026 14:38:15 INFO  Device: cuda
+Thu 11 Jun 2026 14:38:15 INFO  [DATASET] Amazon Reviews 2014 for category: CDs_and_Vinyl
+Thu 11 Jun 2026 14:38:15 INFO  [DATASET] Reviews have been processed...
+Thu 11 Jun 2026 14:38:15 INFO  [DATASET] Metadata has been processed...
+Thu 11 Jun 2026 14:38:15 INFO  [Dataset] AmazonReviews2014
+	Number of users: 75259
+	Number of items: 64444
+	Number of interactions: 1097592
+	Average item sequence length: 14.584195910123706
